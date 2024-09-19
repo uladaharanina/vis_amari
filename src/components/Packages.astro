@@ -1,8 +1,85 @@
 <section>
     <h3>Packages</h3>
 
-    <div>
-        <img src="">
-        <p>Creative</p>
+    <div id="packages_container">
+        <div>
+            <img src="./creative-min.jpg">
+            <div class="price_container">
+                <h5>Creative</h5>
+                <p>starts at $400</p>
+            </div>
+            
+        </div>
+        <div>
+            <img src="./lovestory-min.jpg">
+            <div class="price_container">
+                <h5>LOVE STORY</h5>
+                <p>starts at $350</p>
+            </div>
+        </div>
+        <div>
+            <img src="./maternity-min.jpg">
+            <div class="price_container">
+                <h5>MOTHERHOOD</h5>
+                <p>starts at $400</p>
+            </div>
+        
+        </div>
+        <div>
+            <img src="./portrait-min.jpg">
+            <div class="price_container">
+                <h5>PORTRAIT</h5>
+                <p>starts at $350</p>
+            </div>
+          
+        </div>
     </div>
+   
 </section>
+
+<style>
+    section{
+        margin-top: 10em;
+        width:1500px;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        margin: 5em auto;
+    }
+    section h3{
+        font-size: 25px;
+        font-weight: 400;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+    }
+    #packages_container{
+        display: flex;
+        align-self: center;
+        gap:40px;
+    }
+
+
+
+    section div img{
+        width:383px;
+        height:555px;
+        object-fit:cover;
+        filter: brightness(0.55);
+    }
+
+    #packages_container h5{
+        font-size: 2em;
+        text-align: center;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    #packages_container p{
+        text-align: center;
+    }
+
+    .price_container{
+        position: relative;
+        color: white;
+        top:-120px;
+    }
+</style>
