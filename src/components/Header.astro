@@ -1,0 +1,120 @@
+
+
+<header>
+    <section id="header_container">
+      <div id="identity_container">
+        <p id="Site_name">VIS AMARI PHOTOGRAPHY</p>
+        <p>Suzanna Mamatkulava</p>
+      </div>
+        <nav>
+                <ul>
+                    <li>
+                        <a>Home</a>
+                    </li>
+                    <li>
+                        <a>About</a>
+                    </li>
+                    <li>
+                        <a>Portfolio
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a>Packages</a>
+            
+                    </li>
+                    <li>
+                        <a>Contacts</a>
+            
+                    </li>
+                </ul>
+               
+        </nav>
+            <!--For mobile view only -->
+        <div id="mobile-menu-container">
+                <img src="./public/hamburgerBtn.png" alt="menu Button" id="hamburgerBtn">
+        </div>
+
+        <div id="mobile-menu-nav" class="mobile-menu-nav-not-active">
+            <ul>
+                <li>
+                    <a>Home</a>
+                </li>
+                <li>
+                    <a>About</a>
+                </li>
+                <li>
+                    <a>Portfolio
+                    </a>
+                    
+                </li>
+                <li>
+                    <a>Packages</a>
+        
+                </li>
+                <li>
+                    <a>Contacts</a>
+        
+                </li>
+            </ul>
+
+        <div>
+    </section>
+    
+</header>
+
+
+<style>
+    header{
+        background-color: white;
+        font-family: Joan;
+        padding:0;
+        margin: 0;
+        border:0;
+        text-transform: uppercase;
+    }
+
+    #identity_container{
+        text-align: center;
+        margin-top: 2em;
+    }
+
+    #Site_name{
+        font-size: 24px;
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    #identity_container:last-child{
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul{
+        display: flex;
+        margin: 3em auto;
+        width:930px;
+        text-align: center;
+        justify-content: center;
+        gap:100px;
+    }
+
+    header nav li {
+        list-style-type: none;
+        font-family: Joan;
+        cursor: pointer;
+    }
+
+    header nav li:hover{
+        border-bottom:2px solid black;
+    }
+
+    #mobile-menu-nav{
+        display: none;
+    }
+
+    #mobile-menu-container{
+        display: none;
+    }
+</style>
