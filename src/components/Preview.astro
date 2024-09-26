@@ -1,30 +1,54 @@
-<section>
-
-    <img src="./DSC04504-2-min.jpg">
-    <img src="./IMG_0087-min.jpg">
-    <img src="./DSC01579-min.jpg">
-    <img src="./DSC03206-min.jpg">
-    <img src="./DSC08868-min.jpg">
-    <img src="./DSC08775-min.jpg">
-    <img src="./DSC00343-min.jpg">
-
-
+<section class="slider">
+    <div class="slider-wrapper">
+        <img src="./DSC04504-2-min.jpg" alt="Image 1">
+        <img src="./IMG_0087-min.jpg" alt="Image 2">
+        <img src="./DSC01579-min.jpg" alt="Image 3">
+        <img src="./DSC03206-min.jpg" alt="Image 4">
+        <img src="./DSC08868-min.jpg" alt="Image 5">
+        <img src="./DSC08775-min.jpg" alt="Image 6">
+        <img src="./DSC00343-min.jpg" alt="Image 7">
+    </div>
 </section>
 
 
 <style>
+    .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin: 3em auto;
+    }
 
-    section{
+    .slider-wrapper {
         display: flex;
-        margin: 2em 0;
+        transition: transform 0.5s ease-in-out;
         gap:40px;
-
+        width: calc(100% * 7 / 5); /* Adjusted for 7 images */
     }
-    
-    img{
-        width:386px;
-        height: 613px;
+
+    .slider img {
+        width: calc(100% / 5); /* Show 5 images at a time */
+        flex-shrink: 0; /* Prevent images from shrinking */
         object-fit: cover;
+        width:383px;
+        max-height: 610px; /* Adjust as needed */
+    }
+</style>
+
+
+
+<script>
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const images = document.querySelectorAll('.slider img');
+    const totalImages = images.length;
+    const imagesToShow = 5;
+    let currentIndex = 0;
+
+    function showNextImages() {
+        currentIndex = (currentIndex + 1) % (totalImages - imagesToShow + 1);
+        const offset = -currentIndex * (100 / imagesToShow); // Calculate offset based on images to show
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
     }
 
-</style>
+    setInterval(showNextImages, 2000); // Change images every 3 seconds
+</script>
