@@ -1,0 +1,165 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="Contacts">
+    <Header></Header>
+    <section id="contact_container">
+        <h3>Contact</h3>
+        <p>
+            Thank you for considering me to capture your special moments.Whether you're celebrating an engagement, 
+            looking for creative imagery, or seeking a personal portrait,I’m committed to working closely with you to create 
+            stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life.
+
+        </p>
+        <p> - Suzanna </p>
+    </section>
+
+    <form action="#" method="POST">
+        <input type="text" id="fullname" name="fullname" placeholder="Your name " required>
+    
+        <input type="text" id="pronouns" name="pronouns" placeholder="Pronouns" required>
+    
+        <input type="email" id="email" name="email" placeholder="Email" required>
+    
+        <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
+    
+        <label>How would you prefer to be contacted? *</label>
+        <select name="contactMethod" required>
+            <option value="email">Email</option>
+            <option value="text">Text</option>
+        </select>
+    
+        <label for="services">What type of services are you interested in? *</label>
+        <select id="services" name="services" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="photography">Photography</option>
+            <option value="videography">Videography</option>
+            <option value="both">Both</option>
+        </select>
+    
+        <label for="budget">What's your approximate budget? *</label>
+        <select id="budget" name="budget" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="under500">Under $500</option>
+            <option value="500to1000">$500 - $1000</option>
+            <option value="over1000">Over $1000</option>
+        </select>
+    
+        <label for="date">What is the date you would like to schedule your session? *</label>
+        <input type="date" id="date" name="date" required>
+    
+        <label for="source">How did you find Vis Amari Photography? *</label>
+        <select id="source" name="source" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="social_media">Social Media</option>
+            <option value="friend_referral">Friend Referral</option>
+            <option value="search_engine">Search Engine</option>
+        </select>
+    
+        <label for="about">To help me bring your project to life, what do I need to know about you? *</label>
+        <textarea id="about" name="about" rows="4" placeholder="Tell me a bit about yourself and what you're looking for from me!" required></textarea>
+    
+        <p>Submitting an inquiry opts you in for text message and email communication from Vis Amari Photography.
+    
+        <input type="submit" value="Submit Inquiry">
+    </form>
+    
+</Layout>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    #contact_container{
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('./contacts.jpg');        
+        background-position-y: 20%;
+        background-position-x: 40%;
+        padding: 5em 0;
+        color: rgb(248, 248, 248);
+
+    }
+
+    #contact_container h3{
+        text-align: left;
+        margin: 1em 0;
+        font-weight: 300;
+        margin-left: 15%;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.7em;
+    }
+
+    #contact_container p{
+        width:650px;
+        font-family: Joan, sans-serif;
+        text-align: left;
+        margin-left: 15%;
+        line-height: 2;
+    }
+
+    form {
+        background: #fff;
+        padding: 20px;
+        width:900px;
+        margin: 2em auto;
+        padding: 20px 50px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    }
+    label {
+        display: block;
+        color:rgb(104, 98, 91);
+        font-family: Joan, sans-serif;
+        margin: 10px 0 5px;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #9a9a9a8e;
+        height: 50px;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #000000;
+        color: white;
+        font-family: Joan, sans-serif;
+        font-weight: 400;
+        width:500px;
+        font-size: 1.2em;
+        margin: 2em auto;
+        display: block;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: 1.5px solid black;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #232323;
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    select{
+        color:rgb(149, 149, 149);
+
+    }
+
+    input::placeholder{
+        color:rgb(149, 149, 149);
+        text-transform: uppercase;
+        font-family: Joan, sans-serif;
+
+
+    }
+</style>

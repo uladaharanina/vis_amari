@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+---
+
+<Layout title="About me">
+
+    <Header></Header>
+    <section id="about_container">
+        <div>   
+            <h3>About</h3>
+            <p>
+                Thank you for considering me to capture your special moments.Whether you're celebrating an engagement, 
+                looking for creative imagery, or seeking a personal portrait,I’m committed to working closely with you to create 
+                stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life.
+    
+            </p>
+        </div>
+
+    </section>
+
+    <section id="about_info_container">
+        <h3>A LITTLE ABOUT ME…</h3>
+        <div id="info_wrapper">
+            <img src="./AU5A4923-min.jpg">
+            <div>
+                <p>Hi, I’m Suzanna, a passionate portrait photographer based in Raleigh, NC. My greatest joy comes from capturing the raw, authentic stories of the people I work with. I believe that every photograph should do more than simply freeze a moment—it should tell a story, evoke emotion, and capture the essence of who you are.
+                    <br>Whether I’m photographing a deeply intimate couple’s session, an artistic editorial shoot, 
+                    or the strength and beauty of motherhood, my goal is to create images that resonate on a personal level. 
+                    I'm constantly evolving and refining my craft, always pushing myself to become a better storyteller through photography.</p>
+                    <p><b>My Style:</b></p>
+                    <ul>
+                     <li><b>Emotive & Authentic:</b> My aim is to capture the true emotions of each subject. Every image reveals more than just a face—it tells your unique story in a genuine and connected way.</li> 
+                     <li><b>Bold Yet Elegant:</b> I love to play with contrasts, using vibrant colors and soft light to create images that are both striking and graceful. You’ll see a balance between rich tones and quiet, 
+                        intimate moments in my work.</li>
+                     <li><b>Creative & Editorial:</b> I’m always experimenting with creative concepts and editorial-style shoots that push boundaries. </li>
+                     Whether it's through bold styling or artistic textures, I strive to deliver images that are visually compelling and uniquely you.
+                     <li><b>Timeless & Personal:</b> Every session is customized to reflect your personality and story. My editing style focuses on timeless beauty, ensuring your memories shine for years to come.</li>
+                     <li><b>Natural Storytelling:</b> I believe that the best photos tell a story. From the quiet, tender moments between a mother and her child to the passionate connection of a couple, my 
+                        photography is all about capturing the emotions and narratives that make your story special.</li>
+                    </ul>
+                    <p><b>I’m excited to work with you and help tell your story through the art of photography!</b></p>
+            </div>
+           
+        </div>
+   
+    </section>
+    <Footer></Footer>
+</Layout>
+
+
+<style>
+
+    #about_container{
+
+        width:100%;
+        padding: 40px 0;
+        margin: auto;
+        height: 300px;
+        background: url('./AU5A4923-min.jpg');
+    }
+
+    #about_container div{
+        width:1200px;
+        margin: 5em auto;
+        font-family: Joan, sans-serif;
+    }
+
+    #about_container div h3{
+        text-transform: uppercase;
+    }
+
+    #about_container div p{
+        width:50%;
+        line-height: 2;
+    }
+
+    #about_info_container{
+        width:1200px;
+        margin: 4em auto;
+    }
+
+    #about_info_container h3{
+        font-weight: 300;
+        color:rgba(24, 24, 24, 0.773);
+        font-size: 2em;
+        text-align: center;
+    }
+
+    #info_wrapper{
+        margin: 4em 0 5em;
+        display: flex;
+        align-items: flex-start;
+        gap:70px;
+
+    }
+
+    #info_wrapper p, #info_wrapper ul{
+        font-family: Joan, sans-serif;
+        line-height: 2;
+    }
+
+    #info_wrapper ul li{
+        margin: 1em 0;
+    }
+
+    img{
+        width: 600px;
+        height: 900px;
+        object-fit: cover;
+    }
+
+
+</style>

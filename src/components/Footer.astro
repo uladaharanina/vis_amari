@@ -10,7 +10,7 @@ import Global from '../styles/Global.scss';
         <h3>Follow me on social media</h3>
         <div>
             <a href="https://www.instagram.com/vis_amari?igsh=emU2a3R0ZTVpM3Fn"><i class="fa-brands fa-instagram"></i></a>
-            <a><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.facebook.com/share/JyXCNtLsGomoFZRx/?mibextid=LQQJ4d"><i class="fa-brands fa-facebook"></i></a>
         </div>
     </section>
     <p>Copyright 2024 | All rights reserved</p>
@@ -47,7 +47,13 @@ import Global from '../styles/Global.scss';
 
  #social-media-container div i{
     font-size: 2em;
+    transition: all 2s;
+    cursor: pointer;
     color: black;
+ }
+
+ #social-media-container div i:hover{
+    transform: scale(1.1);
  }
 
  p{
