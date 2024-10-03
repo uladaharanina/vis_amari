@@ -9,22 +9,13 @@ import Footer from "../components/Footer.astro";
 
     <Header></Header>
     <section id="about_container">
-        <div>   
-            <h3>About</h3>
-            <p>
-                Thank you for considering me to capture your special moments.Whether you're celebrating an engagement, 
-                looking for creative imagery, or seeking a personal portrait,I’m committed to working closely with you to create 
-                stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life.
-    
-            </p>
-        </div>
-
+        
     </section>
 
     <section id="about_info_container">
         <h3>A LITTLE ABOUT ME…</h3>
         <div id="info_wrapper">
-            <img src="./AU5A4923-min.jpg">
+            <img src="./about_me.JPG">
             <div>
                 <p>Hi, I’m Suzanna, a passionate portrait photographer based in Raleigh, NC. My greatest joy comes from capturing the raw, authentic stories of the people I work with. I believe that every photograph should do more than simply freeze a moment—it should tell a story, evoke emotion, and capture the essence of who you are.
                     <br>Whether I’m photographing a deeply intimate couple’s session, an artistic editorial shoot, 
@@ -58,22 +49,30 @@ import Footer from "../components/Footer.astro";
         width:100%;
         padding: 40px 0;
         margin: auto;
-        height: 300px;
-        background: url('./AU5A4923-min.jpg');
+        height: 450px;
+        background: url('./about-me-hero-min.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 30%;
     }
 
     #about_container div{
-        width:1200px;
-        margin: 5em auto;
+        width:700px;
+        margin: 3em 0;
+        margin-left: 60%;
         font-family: Joan, sans-serif;
     }
 
     #about_container div h3{
         text-transform: uppercase;
+        text-align: left;
+        font-size:1.5em;
+
     }
 
     #about_container div p{
-        width:50%;
+        width:100%;
+        font-size:1.25em;
         line-height: 2;
     }
 
@@ -110,6 +109,10 @@ import Footer from "../components/Footer.astro";
         width: 600px;
         height: 900px;
         object-fit: cover;
+    }
+
+    #info_wrapper p{
+        margin-left: 2.1em;
     }
 
 

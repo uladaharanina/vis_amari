@@ -6,16 +6,17 @@ import Header from "../components/Header.astro";
 <Layout title="Contacts">
     <Header></Header>
     <section id="contact_container">
-        <h3>Contact</h3>
         <p>
-            Thank you for considering me to capture your special moments.Whether you're celebrating an engagement, 
+            "Thank you for considering me to capture your special moments.Whether you're celebrating an engagement, 
             looking for creative imagery, or seeking a personal portrait,I’m committed to working closely with you to create 
-            stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life.
+            stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life."
 
         </p>
-        <p> - Suzanna </p>
-    </section>
+        <span>- Suzanna</span>
 
+           
+    </section>
+    <h3>Contact Me</h3>
     <form action="#" method="POST">
         <input type="text" id="fullname" name="fullname" placeholder="Your name " required>
     
@@ -34,17 +35,12 @@ import Header from "../components/Header.astro";
         <label for="services">What type of services are you interested in? *</label>
         <select id="services" name="services" required>
             <option value="" disabled selected>Select an option</option>
-            <option value="photography">Photography</option>
-            <option value="videography">Videography</option>
-            <option value="both">Both</option>
-        </select>
-    
-        <label for="budget">What's your approximate budget? *</label>
-        <select id="budget" name="budget" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="under500">Under $500</option>
-            <option value="500to1000">$500 - $1000</option>
-            <option value="over1000">Over $1000</option>
+            <option value="Love Story">Love Story</option>
+            <option value="Maternity">Maternity</option>
+            <option value="Creative">Creative</option>
+            <option value="Portrait">Portrait</option>
+            <option value="Other">Other</option>
+
         </select>
     
         <label for="date">What is the date you would like to schedule your session? *</label>
@@ -53,12 +49,14 @@ import Header from "../components/Header.astro";
         <label for="source">How did you find Vis Amari Photography? *</label>
         <select id="source" name="source" required>
             <option value="" disabled selected>Select an option</option>
-            <option value="social_media">Social Media</option>
+            <option value="Instragram">Instragram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Threads">Threads</option>
             <option value="friend_referral">Friend Referral</option>
-            <option value="search_engine">Search Engine</option>
         </select>
     
-        <label for="about">To help me bring your project to life, what do I need to know about you? *</label>
+        <label for="about">Share your story with me! What should I know about you to bring our project to life?</label>
         <textarea id="about" name="about" rows="4" placeholder="Tell me a bit about yourself and what you're looking for from me!" required></textarea>
     
         <p>Submitting an inquiry opts you in for text message and email communication from Vis Amari Photography.
@@ -76,30 +74,43 @@ import Header from "../components/Header.astro";
 
 
     #contact_container{
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('./contacts.jpg');        
-        background-position-y: 20%;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('./contact-me.png');        
+        background-position-y: 45%;
         background-position-x: 40%;
+        height: 300px;
         padding: 5em 0;
         color: rgb(248, 248, 248);
 
     }
 
-    #contact_container h3{
-        text-align: left;
-        margin: 1em 0;
+     h3{
+        margin: 2em 0;
         font-weight: 300;
-        margin-left: 15%;
         font-family: Joan, sans-serif;
         text-transform: uppercase;
-        font-size: 1.7em;
+        font-size: 2.5em;
+        text-align: center;
     }
 
     #contact_container p{
-        width:650px;
+        width:600px;
         font-family: Joan, sans-serif;
         text-align: left;
-        margin-left: 15%;
+        margin-top: 1.6em;
+        margin-left: 60%;
+        font-size: 1.2em;
         line-height: 2;
+    }
+
+    #contact_container span{
+        text-align: right;
+        display: block;
+        font-size: 1.2em;
+        width:70%;
+        margin-left: 20%;
+
+
+
     }
 
     form {
