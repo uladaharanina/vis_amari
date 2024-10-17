@@ -1,0 +1,20 @@
+---
+import Portfolio from "../../layouts/Portfolio.astro";
+import PortfolioImages from "../../components/PortfolioImages.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { portfolioType: "lovestory" } }, 
+    { params: { portfolioType: "portraits" } },
+    { params: { portfolioType: "creative" } },
+    { params: { portfolioType: "motherhood" } }
+  ];
+}
+
+---
+
+<Portfolio title={Astro.params.portfolioType}>
+  <section>
+    <p>{Astro.params.portfolioType}</p>
+</section>
+</Portfolio>

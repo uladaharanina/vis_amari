@@ -1,0 +1,22 @@
+---
+const { title } = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PortfolioImages from "../components/PortfolioImages.astro";
+
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio: {title}</title>
+</head>
+<body>
+    <Header></Header>
+    <PortfolioImages></PortfolioImages>
+    <Footer></Footer>
+</body>
+</html>

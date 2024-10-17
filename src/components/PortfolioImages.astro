@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+
+const folderPath = `./public/${Astro.params.portfolioType}`;
+
+// Read the directory and filter out only image files
+const files = await fs.readdir(folderPath);
+const portraitFiles = files.filter(file =>
+  /\.(jpg|jpeg|png|gif)$/i.test(file) // Ensure only image files are included
+);
+
+---
+<section id="portfolio_images">
+    {portraitFiles.map((file) => (
+      <img 
+        src={`/${Astro.params.portfolioType}/${file}`} 
+        alt={file} 
+        loading="lazy" 
+        class="image"
+      />
+    ))}
+  </section>
+  
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" />
+  </div>
+  
+  <style>
+    #portfolio_images {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+  
+    .image {
+      width: 100%; /* Adjust to fit within grid cells */
+      height: 500px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+  
+    #portfolio_images img:hover {
+      transform: scale(1.05);
+    }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .lightbox-content {
+      max-width: 600px;
+      max-height: 800px;
+      transition: opacity 0.3s;
+    }
+  
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+  
+  <script>
+
+
+
+
+
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  lightboxImg.src = src;
+  lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  lightbox.style.display = "none";
+}
+
+// Wait until the DOM content is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll("#portfolio_images img");
+
+  images.forEach((image) => {
+    image.addEventListener("click", () => openLightbox(image.src));
+  });
+});
+
+const lightbox = document.querySelector(".lightbox");
+lightbox.addEventListener("click", closeLightbox);
+
+  </script>
+  
