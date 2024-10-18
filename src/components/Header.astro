@@ -7,18 +7,20 @@
         <p>Suzanna Mamatkulava</p>
       </div>
         <nav>
-                <ul>
+                <ul id="general_menu">
                     <li>
                         <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="/about">About</a>
                     </li>
-                    <li>
-                        <a href="/portfolio/motherhood">Portfolio
-                        </a>
-                        
-                    </li>
+                    <a href="#">Portfolio <i class="fas fa-chevron-down" id="dropdown_icon"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="/portfolio/motherhood">Motherhood</a></li>
+                            <li><a href="/portfolio/lovestory">Lovestory</a></li>
+                            <li><a href="/portfolio/portraits">Portraits</a></li>
+                            <li><a href="/portfolio/creative">Creative</a></li>
+                        </ul>
                     <li>
                         <a href="#ackages">Packages</a>
             
@@ -43,11 +45,13 @@
                 <li>
                     <a>About</a>
                 </li>
-                <li>
-                    <a>Portfolio
-                    </a>
-                    
-                </li>
+                <a href="#">Portfolio <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-mobile">
+                        <li><a href="/portfolio/motherhood">Motherhood</a></li>
+                        <li><a href="/portfolio/lovestory">Lovestory</a></li>
+                        <li><a href="/portfolio/portraits">Portraits</a></li>
+                        <li><a href="/portfolio/creative">Creative</a></li>
+                    </ul>
                 <li>
                     <a>Packages</a>
         
@@ -91,7 +95,7 @@
         padding: 0;
     }
 
-    header nav ul{
+    #general_menu{
         display: flex;
         margin: 3em auto;
         width:930px;
@@ -107,7 +111,7 @@
     }
 
     header nav li a{
-        color: black;
+        color: black!important;
         text-decoration: none;
     }
 
@@ -122,4 +126,49 @@
     #mobile-menu-container{
         display: none;
     }
+
+    a{
+        color: black;
+        text-decoration: none;
+    }
+
+
+    /**PORTFOLIO DROW DOWN */
+ 
+  /* Styling for the dropdown menu */
+  .dropdown {
+    display: none; 
+    position: absolute; 
+    background-color: white; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1;
+    padding: 10px; 
+    border:2px solid red;
+    opacity: 0;
+  }
+
+  .dropdown-mobile{
+    display: none;
+  }
+
+  
+
 </style>
+
+<script>
+
+    const dropDownMenuIcon = document.querySelector("#dropdown_icon");
+    const dropdownMenu = document.querySelector(".dropdown");
+
+    dropDownMenuIcon.addEventListener('click', (showSubMenu))
+
+    function showSubMenu(){
+        event.preventDefault(); // Prevent the default link behavior
+
+  // Toggle the display property
+  if (dropdownMenu.style.display === "block") {
+    dropdownMenu.style.display = "none"; // Hide the menu
+  } else {
+    dropdownMenu.style.display = "block"; // Show the menu
+  }    }
+</script>
