@@ -66,7 +66,7 @@
 
 
 <style>
-
+/*DESKTOP*/
     @media screen and (min-width:1400px){
         
 
@@ -170,8 +170,110 @@
 }
 
 }
+/*LAPTOP/TABLET*/
+@media screen and (max-width:1399px) and (min-width:701px){
+    
+    header{
+        background-color: white;
+        font-family: Joan;
+        padding:10px;
+        margin: 0!important;
+        border:0;
+        position: fixed;
+        width: 100%;
+        top:0;
+        z-index: 999;
+        text-transform: uppercase;
+    }
 
+    #identity_container{
+        text-align: center;
+        margin-top: 2em;
+    }
 
+    #Site_name{
+        font-size: 24px;
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    #identity_container:last-child{
+        margin: 0;
+        padding: 0;
+    }
+
+    #general_menu{
+        display: flex;
+        margin: 3em auto;
+        width:930px;
+        text-align: center;
+        justify-content: center;
+        gap:100px;
+    }
+
+    header nav li {
+        list-style-type: none;
+        font-family: Joan;
+        cursor: pointer;
+    }
+
+    header nav  a{
+        color: black;
+        border-bottom:2px solid rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+    header nav li a:hover{
+        border-bottom:2px solid black;
+    }
+
+    #mobile-menu-nav{
+        display: none;
+    }
+
+    #mobile-menu-container{
+        display: none;
+    }
+
+    /**PORTFOLIO DROW DOWN */
+    .dropdown {
+    position: absolute; /* Positioning the dropdown */
+    background-color: white; /* Background color */
+    box-shadow: 1px 1px 10px rgba(46, 45, 45, 0.116);
+    z-index: 1000; /* Ensure it's above other elements */
+    display: block; /* Keep it hidden initially */
+    margin-top: 20px;
+    padding: 10px 25px 0 10px;
+    opacity: 0;
+    transition: 0.9s all ease-in-out;
+    border-radius: 5px;
+}
+
+.dropdown a{
+    transition: 1s all;
+}
+
+#general_menu li {
+    position: relative; /* Required for the dropdown positioning */
+    margin: 20px 0;
+    text-align: left;
+
+}
+
+#general_menu li a {
+    padding: 10px; /* Padding for the links */
+    margin: 20px 0;
+    text-align: left;
+    text-decoration: none; /* Remove underline */
+}
+
+#general_menu li:hover .dropdown {
+    display: block; /* Show dropdown on hover */
+}
+}
+
+/*PHONE*/
     @media screen and (max-width:700px) and (min-width:300px){
      
     header{
@@ -231,7 +333,6 @@
 
     #mobile-menu-nav ul li{
         list-style-type: none;
-
         text-align: center;
         margin: 2em 0;
     }

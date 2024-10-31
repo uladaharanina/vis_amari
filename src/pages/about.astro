@@ -116,6 +116,82 @@ import Footer from "../components/Footer.astro";
     }
    }
 
+   /**LAPTOP */
+   @media screen and (max-width:1399px) and (min-width:701px){
+    #about_container{
+
+width:100%;
+padding: 40px 0;
+margin: 15em auto 5em;
+height: 450px;
+background: url('./about-me-hero-min.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+#about_container div{
+width:700px;
+border:2px solid red;
+margin: 3em 0;
+margin-left: 60%;
+font-family: Joan, sans-serif;
+}
+
+#about_container div h3{
+text-transform: uppercase;
+text-align: left;
+font-size:1.5em;
+
+}
+
+#about_container div p{
+width:100%;
+font-size:1.25em;
+line-height: 2;
+}
+
+#about_info_container{
+max-width:1200px;
+width:100%;
+margin: 4em auto;
+}
+
+#about_info_container h3{
+font-weight: 300;
+color:rgba(24, 24, 24, 0.773);
+font-size: 2em;
+text-align: center;
+}
+
+#info_wrapper{
+margin: 4em 0 5em;
+display: flex;
+border:2px solid red;
+align-items: flex-start;
+gap:70px;
+
+}
+
+#info_wrapper p, #info_wrapper ul{
+font-family: Joan, sans-serif;
+line-height: 2;
+}
+
+#info_wrapper ul li{
+margin: 1em 0;
+}
+
+img{
+width: 60%;
+height: 900px;
+object-fit: cover;
+}
+
+#info_wrapper p{
+margin-left: 2.1em;
+}
+   }
+
    /**PHONE */
    @media screen and (max-width:700px) and (min-width:300px){
     #about_container{
