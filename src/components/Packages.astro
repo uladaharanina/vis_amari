@@ -38,6 +38,9 @@
 </section>
 
 <style>
+
+@media screen and (min-width:1400px){
+
     section{
         margin-top: 10em;
         width:90%;
@@ -99,6 +102,75 @@
     .hovered .gradient-overlay {
         opacity: 1; /* Show gradient on hover */
     }
+}
+
+@media screen and (max-width:700px) and (min-width:300px){
+    
+    section{
+        margin-top: 10em;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        margin: 5em auto 2em; 
+        width: 90%;
+    }
+    section h3{
+        font-size: 25px;
+        font-weight: 400;
+        text-align: center;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+    }
+    #packages_container{
+        display: block;
+        align-self: center;
+        gap:40px;
+    }
+
+
+
+    section div img{
+        width:100%;
+        max-width: 300px;
+        margin: 0 auto;
+        height:450px;
+        display: block;
+        object-fit:cover;
+        filter: brightness(0.55);
+        transition: filter 0.3s ease-out; 
+    }
+
+    #packages_container h5{
+        font-size: 2em;
+        text-align: center;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    #packages_container p{
+        text-align: center;
+    }
+
+    .price_container{
+        position: relative;
+        color: white;
+        top:-120px;
+        transition: all 0.4s ease-out;
+    }
+    .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+        opacity: 0;
+        transition: opacity 0.3s  ease-in-out; /* Smooth transition for overlay */
+    }
+
+    .hovered .gradient-overlay {
+        opacity: 1; /* Show gradient on hover */
+    }
+}
 
 </style>
 

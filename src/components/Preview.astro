@@ -13,43 +13,94 @@
 
 
 <style>
-    .slider {
+    @media screen and (min-width:1000px) {
+.slider {
+        position: relative;
+        overflow: hidden;
+        left:auto;
+        right: auto;
+        width: 95%;
+        margin: 15em auto;
+    }
+
+    .slider-wrapper {
+        display: flex;
+        transition:all 0.5s ease-in-out;
+        gap:20px;
+        width:100%;
+        /*width: calc(100% * 7 / 4); /* Adjusted for 7 images */
+    }
+
+    .slider img {
+        width: calc(100% / 5); /* Show 5 images at a time */
+        flex-shrink: 0; /* Prevent images from shrinking */
+        object-fit: cover;
+        width:383px;
+        max-height: 610px; /* Adjust as needed */
+    }
+}
+
+    @media screen and (max-width:600px) {
+        .slider {
         position: relative;
         overflow: hidden;
         width: 100%;
-        margin: 15em 0;
+        margin: 15em 0 5em;
     }
 
     .slider-wrapper {
         display: flex;
         transition:all 0.5s ease-in-out;
         gap:40px;
-        width: calc(100% * 7 / 4); /* Adjusted for 7 images */
+        width: calc(100% * 10 / 4); /* Adjusted for 7 images */
     }
 
     .slider img {
         width: calc(100% / 4); /* Show 5 images at a time */
         flex-shrink: 0; /* Prevent images from shrinking */
         object-fit: cover;
-        width:383px;
+        width:300px;
         max-height: 610px; /* Adjust as needed */
     }
+    }
+
+    @media screen and (min-width:1300px) {
+
+    }
+  
 </style>
 
 
 
 <script>
-    const sliderWrapper = document.querySelector('.slider-wrapper');
-    const images = document.querySelectorAll('.slider img');
-    const totalImages = images.length;
-    const imagesToShow = 5;
-    let currentIndex = 0;
+const sliderWrapper = document.querySelector('.slider-wrapper');
+const images = document.querySelectorAll('.slider img');
+const totalImages = images.length;
+const imagesToShow = 6; // Number of images to show at once
+let offset = 0;
+let currentIndex = 0;
 
-    function showNextImages() {
-        currentIndex = (currentIndex + 1) % (totalImages - imagesToShow + 1);
-        const offset = -currentIndex * (100 / imagesToShow); // Calculate offset based on images to show
-        sliderWrapper.style.transform = `translateX(${offset}%)`;
+function showNextImages() {
+    currentIndex = (currentIndex + 1) % totalImages; // Cycle through all images
+    if(currentIndex < 6){
+        offset = -currentIndex * (100 / imagesToShow); // Calculate offset based on images to show
+
+    }
+    else if(currentIndex == 6){
+        while(currentIndex != 2){
+            currentIndex = (currentIndex - 1) % totalImages; // Cycle through all images back
+            offset = currentIndex * (50 / imagesToShow); // Calculate offset based on images to show
+            sliderWrapper.style.transform = `translateX(${-offset}%)`;
+        }
+    }
+    else{
+        offset = -currentIndex * (50 / imagesToShow); // Calculate offset based on images to show
     }
 
-    setInterval(showNextImages, 2000); // Change images every 3 seconds
+    sliderWrapper.style.transform = `translateX(${offset}%)`;
+}
+
+// Start the slider
+setInterval(showNextImages, 2000); // Change images every 2 seconds
+
 </script>

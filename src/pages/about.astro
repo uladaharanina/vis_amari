@@ -16,7 +16,7 @@ import Footer from "../components/Footer.astro";
         <h3>A LITTLE ABOUT ME…</h3>
         <div id="info_wrapper">
             <img src="./about_me.JPG">
-            <div>
+            <div id="about_content_container">
                 <p>Hi, I’m Suzanna, a passionate portrait photographer based in Raleigh, NC. My greatest joy comes from capturing the raw, authentic stories of the people I work with. I believe that every photograph should do more than simply freeze a moment—it should tell a story, evoke emotion, and capture the essence of who you are.
                     <br>Whether I’m photographing a deeply intimate couple’s session, an artistic editorial shoot, 
                     or the strength and beauty of motherhood, my goal is to create images that resonate on a personal level. 
@@ -43,7 +43,7 @@ import Footer from "../components/Footer.astro";
 
 
 <style>
-
+   @media screen and (min-width:1400px){
     #about_container{
 
         width:100%;
@@ -114,6 +114,77 @@ import Footer from "../components/Footer.astro";
     #info_wrapper p{
         margin-left: 2.1em;
     }
+   }
+
+   /**PHONE */
+   @media screen and (max-width:700px) and (min-width:300px){
+    #about_container{
+
+        width:100%;
+        padding: 40px 0;
+        margin: 15em auto 5em;
+        height: 150px;
+        background: url('./about-me-hero-min.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+    }
+
+    #about_container div{
+        width:100%;
+        margin: 3em 0;
+        font-family: Joan, sans-serif;
+    }
+
+
+    #about_info_container{
+        width:100%;
+        margin: 2em auto;
+    }
+
+    #about_info_container h3{
+        font-weight: 300;
+        margin: 12em 0 0.5em;
+        color:rgba(24, 24, 24, 0.773);
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    #info_wrapper{
+        margin: 4em 0 5em;
+        gap:70px;
+
+    }
+
+    #info_wrapper p, #info_wrapper ul{
+        font-family: Joan, sans-serif;
+        line-height: 2;
+    }
+
+    #info_wrapper ul{
+        padding: 10px 0 0 30px;
+        width:85%;
+    }
+
+    #info_wrapper ul li{
+        margin: 0.2em 0;
+    }
+
+    img{
+        width: 90%;
+        display: block;
+        margin: auto;
+        height: 500px;
+        object-fit: cover;
+    }
+
+
+    #about_content_container p{
+        margin: 20px auto;
+        width:90%;
+    }
+
+}
 
 
 </style>

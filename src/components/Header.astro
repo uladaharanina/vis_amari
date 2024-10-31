@@ -36,42 +36,40 @@
                
         </nav>
             <!--For mobile view only -->
-        <div id="mobile-menu-container">
-                <img src="./public/hamburgerBtn.png" alt="menu Button" id="hamburgerBtn">
-        </div>
+            <div id="mobile-menu-container">
+                <!--<img src="./public/hamburgerBtn.png" alt="Menu Button" id="hamburgerBtn">-->
+                <h1>MENU</h1>
+            </div>
+            
+            <div id="mobile-menu-nav" class="mobile-menu-nav-not-active">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
 
-        <div id="mobile-menu-nav" class="mobile-menu-nav-not-active">
-            <ul>
-                <li>
-                    <a>Home</a>
-                </li>
-                <li>
-                    <a>About</a>
-                </li>
-                <a href="#">Portfolio <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-mobile">
-                        <li><a href="/portfolio/motherhood">Motherhood</a></li>
-                        <li><a href="/portfolio/lovestory">Lovestory</a></li>
-                        <li><a href="/portfolio/portraits">Portraits</a></li>
-                        <li><a href="/portfolio/creative">Creative</a></li>
-                    </ul>
-                <li>
-                    <a>Packages</a>
-        
-                </li>
-                <li>
-                    <a>Contacts</a>
-        
-                </li>
-            </ul>
+                    <li>
+                        <a href="#">Portfolio <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-mobile">
+                            <li><a href="/portfolio/motherhood">Motherhood</a></li>
+                            <li><a href="/portfolio/lovestory">Lovestory</a></li>
+                            <li><a href="/portfolio/portraits">Portraits</a></li>
+                            <li><a href="/portfolio/creative">Creative</a></li>
+                        </ul>
+                    </li>
 
-        <div>
+                    <li><a href="/#packages">Packages</a></li>
+                    <li><a href="/contacts">Contacts</a></li>
+                </ul>
+            </div>
     </section>
     
 </header>
 
 
 <style>
+
+    @media screen and (min-width:1400px){
+        
+
     header{
         background-color: white;
         font-family: Joan;
@@ -170,7 +168,132 @@
 #general_menu li:hover .dropdown {
     display: block; /* Show dropdown on hover */
 }
+
+}
+
+
+    @media screen and (max-width:700px) and (min-width:300px){
+     
+    header{
+        background-color: white;
+        font-family: Joan;
+        padding:10px;
+        margin: 0!important;
+        border:0;
+
+        position: fixed;
+        width: 100%;
+        top:0;
+        z-index: 999;
+        text-transform: uppercase;
+    }
+
+    #header_container{
+        display: block;
+    }
+
+    #identity_container{
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    #Site_name{
+        font-size: 24px;
+        margin: 0;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    #identity_container:last-child{
+        margin: 0;
+        padding: 0;
+    }
+
+    #general_menu{
+        display: none;
+    }
+
   
+    #mobile-menu-nav{
+        display: none;
+        opacity: 0;
+        transition: 0.6s opasity;
+        height: 100vh;
+        margin: auto;
+        padding: 20px 0;
+        width:200px;
+    }
+
+    #mobile-menu-nav ul {
+        padding: 20px 0;
+
+    }
+
+    #mobile-menu-nav ul li{
+        list-style-type: none;
+
+        text-align: center;
+        margin: 2em 0;
+    }
+
+    #mobile-menu-nav ul li a{
+        color: black;
+        transition: 2s all;
+        text-decoration: none;
+    }
+
+    #mobile-menu-nav ul li a:hover{
+        border-bottom: 2px solid black;
+    }
+
+    #mobile-menu-container{
+        display: block;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #mobile-menu-container h1{
+        font-weight: 300;
+        margin-top: 3em;
+        font-size: 1.2em;
+    }
+
+    /**PORTFOLIO DROW DOWN */
+    .dropdown-mobile {
+    position: absolute; /* Positioning the dropdown */
+    background-color: white; /* Background color */
+    box-shadow: 1px 1px 10px rgba(46, 45, 45, 0.116);
+    z-index: 1000; /* Ensure it's above other elements */
+    display: none; /* Keep it hidden initially */
+    margin-top: 20px;
+    padding: 10px 25px 0 10px;
+    opacity: 0;
+    transition: 0.9s all ease-in-out;
+    border-radius: 5px;
+}
+
+.dropdown a{
+    transition: 1s all;
+}
+
+#general_menu li {
+    position: relative; /* Required for the dropdown positioning */
+    margin: 20px 0;
+    text-align: left;
+
+}
+
+#general_menu li a {
+    padding: 10px; /* Padding for the links */
+    margin: 20px 0;
+    text-align: left;
+    text-decoration: none; /* Remove underline */
+}
+
+#general_menu li:hover .dropdown {
+    display: block; /* Show dropdown on hover */
+}
+    }
 
 </style>
 
@@ -178,6 +301,8 @@
 
 const dropDownMenuIcon = document.querySelector("#dropdown_icon");
 const dropdownMenu = document.querySelector(".dropdown");
+
+
 const portfolioLink = dropDownMenuIcon.closest('li'); // Get the parent <li>
 
 portfolioLink.addEventListener('mouseenter', showSubMenu);
@@ -185,13 +310,44 @@ portfolioLink.addEventListener('mouseleave', hideSubMenu);
 
 function showSubMenu() {
     //dropdownMenu.style.display = "block"; // Show the menu
-    dropdownMenu.style.opacity = "1"; // Show the menu
-
+    dropdownMenu["style"].opacity = "1"; // Show the menu
+    dropdownMenuMobile["style"].opacity = "1"
 }
 
 function hideSubMenu() {
     //dropdownMenu.style.display = "none"; // Hide the menu
     dropdownMenu.style.opacity = "0"; // Show the menu
+    dropdownMenuMobile["style"].opacity = "1"
 
 }
+
+
+//For mobile
+const menuBtn = document.getElementById('mobile-menu-container');
+const menyBtnText = document.querySelector('#mobile-menu-container h1');
+const dropdownMenuMobile = document.querySelector(".dropdown-mobile");
+const mobileMenuNav = document.querySelector("#mobile-menu-nav");
+// Toggle mobile menu visibility
+menuBtn.addEventListener('click', () => {
+    if( mobileMenuNav["style"].display == "block"){
+        mobileMenuNav["style"].display="none";
+        menyBtnText.textContent = "MENU";
+        mobileMenuNav["style"].opacity="0";
+
+    }
+    else{
+        menyBtnText.textContent = "CLOSE";
+        mobileMenuNav["style"].display="block";
+        mobileMenuNav["style"].opacity="1";
+
+    }
+
+});
+
+// Close the menu when a link is clicked
+mobileMenuNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenuNav.classList.remove('mobile-menu-nav-active'); // Close menu
+    });
+});
 </script>

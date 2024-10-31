@@ -9,6 +9,9 @@
 </section>
 
 <style>
+
+/*DESKTOP*/
+@media screen and (min-width:1400px){
     section{
         background-image: url('./about-min.jpg');
         background-position-y: 30%;
@@ -58,4 +61,55 @@
         border: 2px solid black;
         color:black;
     }
+
+}
+
+/*PHONE */
+@media screen and (max-width:700px) and (min-width:300px){
+    section{
+        background-image: url('./about-min.jpg');
+        padding: 10px 0;
+        background-size: cover;
+        width:100%;
+        margin: auto;
+        background-repeat: no-repeat;
+    }
+
+    section div{
+        background-color: rgba(255, 255, 255, 0.585);
+        padding: 20px;
+        margin: 0.2em 1em;
+        font-family: Joan, sans-serif;
+    }
+
+    section div h4{
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    section p{
+        color: rgb(15, 15, 15);
+        width:90%;
+        margin: auto;
+        text-align: center;
+    }
+
+    section div a{
+        background-color: black;
+        border: 2px solid black;
+        color:white;
+        padding: 20px 50px;
+        display: block;
+        margin: 2em auto;
+        text-align: center;
+        transition: all 0.5s;
+        width: 100px;
+    }
+
+    section div a:hover{
+        background-color: white;
+        border: 2px solid black;
+        color:black;
+    }
+}
 </style>
