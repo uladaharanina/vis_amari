@@ -25,3 +25,34 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	html {
+		scroll-behavior: smooth;
+	}
+	body{
+		background-color: white;
+		opacity: 0; /* Start invisible */
+		transition: opacity 1s ease-in; /* Transition for smooth fade-in */
+	}
+
+	body.loaded {
+    opacity: 1; /* Fully visible when loaded */
+}
+
+	main{
+		background-color: white;
+	}
+
+</style>
+
+<script>
+	window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+</script>

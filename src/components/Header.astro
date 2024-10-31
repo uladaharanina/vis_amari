@@ -14,15 +14,18 @@
                     <li>
                         <a href="/about">About</a>
                     </li>
-                    <a href="#">Portfolio <i class="fas fa-chevron-down" id="dropdown_icon"></i></a>
+                    <li>
+                        <a href="#" id="portfolio_link">Portfolio <i class="fas fa-chevron-down" id="dropdown_icon"></i></a>
                         <ul class="dropdown">
                             <li><a href="/portfolio/motherhood">Motherhood</a></li>
                             <li><a href="/portfolio/lovestory">Lovestory</a></li>
                             <li><a href="/portfolio/portraits">Portraits</a></li>
                             <li><a href="/portfolio/creative">Creative</a></li>
                         </ul>
+                    </li>
+                    
                     <li>
-                        <a href="#ackages">Packages</a>
+                        <a href="/#packages">Packages</a>
             
                     </li>
                     <li>
@@ -72,9 +75,13 @@
     header{
         background-color: white;
         font-family: Joan;
-        padding:0;
-        margin: 0;
+        padding:10px;
+        margin: 0!important;
         border:0;
+        position: fixed;
+        width: 100%;
+        top:0;
+        z-index: 999;
         text-transform: uppercase;
     }
 
@@ -128,44 +135,63 @@
         display: none;
     }
 
-
-
     /**PORTFOLIO DROW DOWN */
- 
-  /* Styling for the dropdown menu */
-  .dropdown {
-    display: none; 
-    position: absolute; 
-    background-color: white; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-    z-index: 1;
-    padding: 10px; 
-    border:2px solid red;
+    .dropdown {
+    position: absolute; /* Positioning the dropdown */
+    background-color: white; /* Background color */
+    box-shadow: 1px 1px 10px rgba(46, 45, 45, 0.116);
+    z-index: 1000; /* Ensure it's above other elements */
+    display: block; /* Keep it hidden initially */
+    margin-top: 20px;
+    padding: 10px 25px 0 10px;
     opacity: 0;
-  }
+    transition: 0.9s all ease-in-out;
+    border-radius: 5px;
+}
 
-  .dropdown-mobile{
-    display: none;
-  }
+.dropdown a{
+    transition: 1s all;
+}
 
+#general_menu li {
+    position: relative; /* Required for the dropdown positioning */
+    margin: 20px 0;
+    text-align: left;
+
+}
+
+#general_menu li a {
+    padding: 10px; /* Padding for the links */
+    margin: 20px 0;
+    text-align: left;
+    text-decoration: none; /* Remove underline */
+}
+
+#general_menu li:hover .dropdown {
+    display: block; /* Show dropdown on hover */
+}
   
 
 </style>
 
 <script>
 
-    const dropDownMenuIcon = document.querySelector("#dropdown_icon");
-    const dropdownMenu = document.querySelector(".dropdown");
+const dropDownMenuIcon = document.querySelector("#dropdown_icon");
+const dropdownMenu = document.querySelector(".dropdown");
+const portfolioLink = dropDownMenuIcon.closest('li'); // Get the parent <li>
 
-    dropDownMenuIcon.addEventListener('click', (showSubMenu))
+portfolioLink.addEventListener('mouseenter', showSubMenu);
+portfolioLink.addEventListener('mouseleave', hideSubMenu);
 
-    function showSubMenu(){
-        event.preventDefault(); // Prevent the default link behavior
+function showSubMenu() {
+    //dropdownMenu.style.display = "block"; // Show the menu
+    dropdownMenu.style.opacity = "1"; // Show the menu
 
-  // Toggle the display property
-  if (dropdownMenu.style.display === "block") {
-    dropdownMenu.style.display = "none"; // Hide the menu
-  } else {
-    dropdownMenu.style.display = "block"; // Show the menu
-  }    }
+}
+
+function hideSubMenu() {
+    //dropdownMenu.style.display = "none"; // Hide the menu
+    dropdownMenu.style.opacity = "0"; // Show the menu
+
+}
 </script>

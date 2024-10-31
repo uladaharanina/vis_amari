@@ -1,12 +1,12 @@
 <section class="slider">
     <div class="slider-wrapper">
-        <img src="./preview/1.jpg" alt="Image 1">
-        <img src="./preview/2.jpg" alt="Image 2">
-        <img src="./preview/3.jpg" alt="Image 3">
-        <img src="./preview/4.jpg" alt="Image 4">
-        <img src="./preview/5.jpg" alt="Image 5">
-        <img src="./preview/6.jpg" alt="Image 6">
-        <img src="./preview/7.jpg" alt="Image 7">
+        <img src="./preview/1.jpg" alt="Image 1" loading="lazy" >
+        <img src="./preview/2.jpg" alt="Image 2" loading="lazy" >
+        <img src="./preview/3.jpg" alt="Image 3" loading="lazy" >
+        <img src="./preview/4.jpg" alt="Image 4" loading="lazy" >
+        <img src="./preview/5.jpg" alt="Image 5" loading="lazy" >
+        <img src="./preview/6.jpg" alt="Image 6" loading="lazy" >
+        <img src="./preview/7.jpg" alt="Image 7" loading="lazy" >
 
     </div>
 </section>
@@ -17,14 +17,14 @@
         position: relative;
         overflow: hidden;
         width: 100%;
-        margin: 3em 0;
+        margin: 15em 0;
     }
 
     .slider-wrapper {
         display: flex;
         transition:all 0.5s ease-in-out;
         gap:40px;
-        /*width: calc(100% * 7 / 4); /* Adjusted for 7 images */
+        width: calc(100% * 7 / 4); /* Adjusted for 7 images */
     }
 
     .slider img {

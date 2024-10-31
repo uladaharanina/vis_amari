@@ -13,17 +13,36 @@ import Packages from '../components/Packages.astro'
 	<main>
 		<Preview></Preview>
 		<About></About>
-		<Packages></Packages>
+		<section id="packages">
+			<Packages></Packages>
+		</section>
 	</main>
 	<Footer></Footer>
 </Layout>
 
 <style>
+
+	html {
+		scroll-behavior: smooth;
+	}
 	body{
 		background-color: white;
+		opacity: 0; /* Start invisible */
+		transition: opacity 0.5s ease; /* Transition for smooth fade-in */
 	}
+
+	body.loaded {
+    opacity: 1; /* Fully visible when loaded */
+}
+
 	main{
 		background-color: white;
 	}
 
 </style>
+
+<script>
+	window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+</script>
