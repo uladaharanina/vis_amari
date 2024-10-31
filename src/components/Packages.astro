@@ -2,31 +2,31 @@
     <h3>Packages</h3>
 
     <div id="packages_container">
-        <div>
-            <img src="./creative-min.jpg">
+        <div class = "single_package">
+            <img src="./packages/creative-min.jpg">
             <div class="price_container">
                 <h5>Creative</h5>
                 <p>starts at $400</p>
             </div>
             
         </div>
-        <div>
-            <img src="./lovestory-min.jpg">
+        <div  class = "single_package">
+            <img src="./packages/lovestory-min.jpg">
             <div class="price_container">
                 <h5>LOVE STORY</h5>
                 <p>starts at $350</p>
             </div>
         </div>
-        <div>
-            <img src="./maternity-min.jpg">
+        <div  class = "single_package">
+            <img src="./packages/maternity-min.jpg">
             <div class="price_container">
                 <h5>MOTHERHOOD</h5>
                 <p>starts at $400</p>
             </div>
         
         </div>
-        <div>
-            <img src="./portrait-min.jpg">
+        <div class = "single_package">
+            <img src="./packages/portrait-min.jpg">
             <div class="price_container">
                 <h5>PORTRAIT</h5>
                 <p>starts at $350</p>
@@ -65,6 +65,7 @@
         height:555px;
         object-fit:cover;
         filter: brightness(0.55);
+        transition: filter 0.3s ease-out; 
     }
 
     #packages_container h5{
@@ -82,5 +83,46 @@
         position: relative;
         color: white;
         top:-120px;
+        transition: all 0.4s ease-out;
     }
+    .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+        opacity: 0;
+        transition: opacity 0.3s  ease-in-out; /* Smooth transition for overlay */
+    }
+
+    .hovered .gradient-overlay {
+        opacity: 1; /* Show gradient on hover */
+    }
+
 </style>
+
+<script>
+
+const priceContainers = document.querySelectorAll('.price_container');
+
+  document.querySelectorAll('#packages_container div').forEach(container => {
+        const gradient = document.createElement('div');
+        gradient.classList.add('gradient-overlay');
+        container.appendChild(gradient);
+
+        container.addEventListener('mouseenter', () => {
+            container.querySelector('img').style.filter = 'brightness(0.1)';
+            container.querySelector('.price_container').style.top = '-300px';
+            gradient.classList.add('hovered');
+        });
+
+        container.addEventListener('mouseleave', () => {
+            container.querySelector('img').style.filter = 'brightness(0.70)';
+            container.querySelector('.price_container').style.top = '-120px';
+
+            gradient.classList.remove('hovered');
+        });
+    });
+
+</script>

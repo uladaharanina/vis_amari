@@ -1,12 +1,13 @@
 <section class="slider">
     <div class="slider-wrapper">
-        <img src="./DSC04504-2-min.jpg" alt="Image 1">
-        <img src="./IMG_0087-min.jpg" alt="Image 2">
-        <img src="./DSC01579-min.jpg" alt="Image 3">
-        <img src="./DSC03206-min.jpg" alt="Image 4">
-        <img src="./DSC08868-min.jpg" alt="Image 5">
-        <img src="./DSC08775-min.jpg" alt="Image 6">
-        <img src="./DSC00343-min.jpg" alt="Image 7">
+        <img src="./preview/1.jpg" alt="Image 1">
+        <img src="./preview/2.jpg" alt="Image 2">
+        <img src="./preview/3.jpg" alt="Image 3">
+        <img src="./preview/4.jpg" alt="Image 4">
+        <img src="./preview/5.jpg" alt="Image 5">
+        <img src="./preview/6.jpg" alt="Image 6">
+        <img src="./preview/7.jpg" alt="Image 7">
+
     </div>
 </section>
 
@@ -16,18 +17,18 @@
         position: relative;
         overflow: hidden;
         width: 100%;
-        margin: 3em auto;
+        margin: 3em 0;
     }
 
     .slider-wrapper {
         display: flex;
-        transition: transform 0.5s ease-in-out;
+        transition:all 0.5s ease-in-out;
         gap:40px;
-        width: calc(100% * 7 / 5); /* Adjusted for 7 images */
+        /*width: calc(100% * 7 / 4); /* Adjusted for 7 images */
     }
 
     .slider img {
-        width: calc(100% / 5); /* Show 5 images at a time */
+        width: calc(100% / 4); /* Show 5 images at a time */
         flex-shrink: 0; /* Prevent images from shrinking */
         object-fit: cover;
         width:383px;
