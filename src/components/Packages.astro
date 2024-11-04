@@ -39,6 +39,7 @@
 
 <style>
 
+/*DESTOP*/
 @media screen and (min-width:1400px){
 
     section{
@@ -104,6 +105,78 @@
     }
 }
 
+/*TABLET*/
+@media screen and (min-width:701px) and (max-width:1399px){
+
+section{
+    margin-top: 10em;
+    display: grid;
+    width:90%;
+    font-family: Joan, sans-serif;
+    text-transform: uppercase;
+    margin: 2em auto;
+    max-width: 1700px;
+
+}
+section h3{
+    font-size: 25px;
+    text-align: center;
+    margin: 4em 0;
+    font-weight: 400;
+    font-family: Joan, sans-serif;
+    text-transform: uppercase;
+}
+#packages_container{
+
+    display: grid;
+    margin: 0 auto;
+    gap: 0 10%;
+    grid-template-columns: 45% 45%;
+
+}
+
+section div img{
+    width:100%;
+    height:555px;
+    margin: 0;
+    object-fit:cover;
+    filter: brightness(0.55);
+    transition: filter 0.3s ease-out; 
+}
+
+#packages_container h5{
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400;
+    margin: 0;
+}
+
+#packages_container p{
+    text-align: center;
+}
+
+.price_container{
+    position: relative;
+    color: white;
+    top:-120px;
+    transition: all 0.4s ease-out;
+}
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s  ease-in-out; /* Smooth transition for overlay */
+}
+
+.hovered .gradient-overlay {
+    opacity: 1; /* Show gradient on hover */
+}
+}
+/*MOBILE*/
 @media screen and (max-width:700px) and (min-width:300px){
     
     section{
@@ -122,11 +195,14 @@
     }
     #packages_container{
         display: block;
-        align-self: center;
-        gap:40px;
+        padding: 0;
+        align-self: center;        
     }
 
-
+    .single_package{
+        height: 480px;
+        padding: 0;
+    }
 
     section div img{
         width:100%;
