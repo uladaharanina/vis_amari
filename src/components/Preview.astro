@@ -13,6 +13,8 @@
 
 
 <style>
+
+    /**DESKTOP */
     @media screen and (min-width:1000px) {
 .slider {
         position: relative;
@@ -20,7 +22,7 @@
         left:auto;
         right: auto;
         width: 95%;
-        margin: 15em auto;
+        margin: 15em auto 10em;
     }
 
     .slider-wrapper {
@@ -39,7 +41,7 @@
         max-height: 610px; /* Adjust as needed */
     }
 }
-
+    /**MOBILE */
     @media screen and (max-width:600px) {
         .slider {
         position: relative;
@@ -64,8 +66,32 @@
     }
     }
 
-    @media screen and (min-width:1300px) {
+    /**TABLET */
+    @media screen and (min-width:601px) and (max-width:999px){
+        .slider {
+        position: relative;
+        overflow: hidden;
+        left:auto;
+        right: auto;
+        width: 95%;
+        margin: 15em auto 9em;
+    }
 
+    .slider-wrapper {
+        display: flex;
+        transition:all 0.5s ease-in-out;
+        gap:20px;
+        width:100%;
+        width: calc(100% * 7 / 4); /* Adjusted for 7 images */
+    }
+
+    .slider img {
+        width: calc(100% / 5); /* Show 5 images at a time */
+        flex-shrink: 0; /* Prevent images from shrinking */
+        object-fit: cover;
+        width:383px;
+        max-height: 610px; /* Adjust as needed */
+    }
     }
   
 </style>
