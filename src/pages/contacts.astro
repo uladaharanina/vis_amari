@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
 ---
 
 <Layout title="Contacts">
@@ -63,21 +65,20 @@ import Header from "../components/Header.astro";
     
         <input type="submit" value="Submit Inquiry">
     </form>
-    
+    <Footer></Footer>
 </Layout>
 
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
 
-
-    #contact_container{
+    /*DESKTOP*/
+    @media screen and (min-width:1500px){
+        #contact_container{
         margin-top: 16em;
         background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('./contact-me.png');        
         background-position-y: 45%;
         background-position-x: 40%;
+        background-size: cover;
+        background-repeat: no-repeat;
         height: 300px;
         padding: 5em 0;
         color: rgb(248, 248, 248);
@@ -108,7 +109,7 @@ import Header from "../components/Header.astro";
         display: block;
         font-size: 1.2em;
         width:70%;
-        margin-left: 20%;
+        margin-left: 15%;
 
 
 
@@ -174,4 +175,322 @@ import Header from "../components/Header.astro";
 
 
     }
+    }
+
+    /*LAPTOP*/
+    @media screen and (min-width:1200px) and (max-width: 1499px){
+        #contact_container{
+        margin-top: 16em;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('./contact-me.png');        
+        background-position-y: 45%;
+        background-position-x: 40%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 300px;
+        padding: 5em 0;
+        width:100%;
+        color: rgb(248, 248, 248);
+
+    }
+
+     h3{
+        margin: 2em 0;
+        font-weight: 300;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.7em;
+        text-align: center;
+    }
+
+    #contact_container p{
+        width:580px;
+        font-family: Joan, sans-serif;
+        text-align: left;
+        margin-top: 1.6em;
+        margin-left: 50%;
+        font-size: 1em;
+        line-height: 2;
+    }
+
+    #contact_container span{
+        text-align: right;
+        display: block;
+        font-size: 1.2em;
+        width:70%;
+        margin-left: 25%;
+
+
+
+    }
+
+    form {
+        background: #fff;
+        padding: 20px;
+        width:700px;
+        margin: 2em auto;
+        padding: 20px 50px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    }
+    label {
+        display: block;
+        color:rgb(104, 98, 91);
+        font-family: Joan, sans-serif;
+        margin: 10px 0 5px;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #9a9a9a8e;
+        height: 50px;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #000000;
+        color: white;
+        font-family: Joan, sans-serif;
+        font-weight: 400;
+        width:500px;
+        font-size: 1.2em;
+        margin: 2em auto;
+        display: block;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: 1.5px solid black;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #232323;
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    select{
+        color:rgb(149, 149, 149);
+
+    }
+
+    input::placeholder{
+        color:rgb(149, 149, 149);
+        text-transform: uppercase;
+        font-family: Joan, sans-serif;
+
+
+    }
+    }
+
+        /*TABLET*/
+        @media screen and (min-width:799px) and (max-width: 1199px){
+        #contact_container{
+        margin-top: 16em;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('./contact-me.png');        
+        background-position-y: 45%;
+        background-position-x: 40%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 200px;
+        padding: 5em 0;
+        width:100%;
+        color: rgb(248, 248, 248);
+
+    }
+
+     h3{
+        margin: 2em 0;
+        font-weight: 300;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.7em;
+        text-align: center;
+    }
+
+    #contact_container p{
+        width:500px;
+        font-family: Joan, sans-serif;
+        text-align: left;
+        margin-top: 1.6em;
+        margin-left: 50%;
+        font-size: 1em;
+        line-height: 2;
+    }
+
+    #contact_container span{
+        text-align: right;
+        display: block;
+        font-size: 1.2em;
+        width:70%;
+        margin-left: 25%;
+    }
+
+    form {
+        background: #fff;
+        padding: 40px 20px;
+        width:500px;
+        margin: 2em auto;
+        padding: 20px 50px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    }
+    label {
+        display: block;
+        color:rgb(104, 98, 91);
+        font-family: Joan, sans-serif;
+        margin: 10px 0 5px;
+    }
+    input, select, textarea {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #9a9a9a8e;
+        height: 50px;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #000000;
+        color: white;
+        font-family: Joan, sans-serif;
+        font-weight: 400;
+        width:500px;
+        font-size: 1.2em;
+        margin: 2em auto;
+        display: block;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: 1.5px solid black;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #232323;
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    select{
+        color:rgb(149, 149, 149);
+
+    }
+
+    input::placeholder{
+        color:rgb(149, 149, 149);
+        text-transform: uppercase;
+        font-family: Joan, sans-serif;
+
+
+    }
+    }
+
+            /*PHONE*/
+        @media screen and (min-width:300px) and (max-width: 800px){
+        #contact_container{
+        margin-top: 16em;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.795)), url('./contact-me.png');        
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 3em 1em;
+        color: rgb(248, 248, 248);
+
+    }
+
+     h3{
+        margin: 2em 0;
+        font-weight: 300;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        text-align: center;
+        width:100%;
+    }
+
+    #contact_container p{
+        width:90%;
+        font-family: Joan, sans-serif;
+        font-size: 1em;
+        line-height: 2;
+        margin: auto;
+        margin-top: 1.6em;
+
+    }
+
+    #contact_container span{
+        text-align: right;
+        display: block;
+        font-size: 1.2em;
+    }
+
+    form {
+        background: #fff;
+        width:90%;
+        max-width: 500px;
+        margin: 2em auto;
+        padding: 20px 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    }
+    label {
+        display: block;
+        color:rgb(104, 98, 91);
+        font-family: Joan, sans-serif;
+        margin: 10px 0 5px;
+    }
+    input, select, textarea {
+        width: 90%;
+        max-width: 450px;
+
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #9a9a9a8e;
+        height: 100%;
+        max-height: 50px;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #000000;
+        color: white;
+        font-family: Joan, sans-serif;
+        font-weight: 400;
+        width:95%;
+        font-size: 1.2em;
+        margin: 2em auto;
+        display: block;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: 1.5px solid black;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #232323;
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    select{
+        color:rgb(149, 149, 149);
+
+    }
+
+    input::placeholder{
+        color:rgb(149, 149, 149);
+        text-transform: uppercase;
+        font-family: Joan, sans-serif;
+
+
+    }
+    }
+ 
 </style>
