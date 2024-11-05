@@ -37,7 +37,6 @@
         </nav>
             <!--For mobile view only -->
             <div id="mobile-menu-container">
-                <!--<img src="./public/hamburgerBtn.png" alt="Menu Button" id="hamburgerBtn">-->
                 <h1>...</h1>
             </div>
             
@@ -46,7 +45,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
 
-                    <li>
+                    <li id="portfolio_link_mob">
                         <a href="#">Portfolio <i class="fas fa-chevron-down dropdown-icon"></i></a>
                         <ul class="dropdown-mobile">
                             <li><a href="/portfolio/motherhood">Motherhood</a></li>
@@ -173,6 +172,11 @@
     display: block; /* Show dropdown on hover */
 }
 
+.dropdown-mobile{
+    display: none;
+}
+
+
 }
 /*LAPTOP*/
 @media screen and (max-width:1399px) and (min-width:900px){
@@ -233,7 +237,7 @@
     }
 
     #mobile-menu-nav{
-        display: none;
+        display: none!important;
     }
 
     #mobile-menu-container{
@@ -252,6 +256,10 @@
     opacity: 0;
     transition: 0.9s all ease-in-out;
     border-radius: 5px;
+}
+
+.dropdown-mobile{
+    display: none;
 }
 
 .dropdown a{
@@ -386,7 +394,6 @@
 }
 }
 
-
 /*PHONE*/
     @media screen and (min-width:300px) and (max-width:800px){
      
@@ -438,9 +445,7 @@
         display: none;
     }
 
-    #mobile-menu-container h1{
-    }
-  
+
     #mobile-menu-nav{
         display: none;
         opacity: 0;
@@ -490,50 +495,29 @@
 
     /**PORTFOLIO DROW DOWN */
     .dropdown-mobile {
-    position: absolute; /* Positioning the dropdown */
-    background-color: white; /* Background color */
-    box-shadow: 1px 1px 10px rgba(46, 45, 45, 0.116);
-    z-index: 1000; /* Ensure it's above other elements */
-    display: none; /* Keep it hidden initially */
-    margin-top: 20px;
-    padding: 10px 25px 0 10px;
-    opacity: 0;
-    transition: 2s all ease-in-out;
-    border-radius: 5px;
-}
+        display: none;
+        font-size: 0.8em;
+        padding: 5px!important;
+    }
 
-.dropdown a{
-    transition: 1s all;
-}
+    .dropdown a{
+        transition: 1s all;
+    }
 
-#general_menu li {
-    position: relative; /* Required for the dropdown positioning */
-    margin: 20px 0;
-    text-align: left;
 
-}
-
-#general_menu li a {
-    padding: 10px; /* Padding for the links */
-    margin: 20px 0;
-    text-align: left;
-    text-decoration: none; /* Remove underline */
-}
-
-#general_menu li:hover .dropdown {
-    display: block; /* Show dropdown on hover */
-}
     }
 
 </style>
 
 <script>
 
+
+/*DESKTOP*/
 const dropDownMenuIcon = document.querySelector("#dropdown_icon");
 const dropdownMenu = document.querySelector(".dropdown");
-
-
 const portfolioLink = dropDownMenuIcon.closest('li'); // Get the parent <li>
+
+
 
 portfolioLink.addEventListener('mouseenter', showSubMenu);
 portfolioLink.addEventListener('mouseleave', hideSubMenu);
@@ -552,30 +536,50 @@ function hideSubMenu() {
 }
 
 
-//For mobile
+/*MOBILE*/
+// Get references to the DOM elements
 const menuBtn = document.getElementById('mobile-menu-container');
-const menyBtnText = document.querySelector('#mobile-menu-container h1');
+const menuBtnText = document.querySelector('#mobile-menu-container h1');
 const dropdownMenuMobile = document.querySelector(".dropdown-mobile");
 const mobileMenuNav = document.querySelector("#mobile-menu-nav");
+const portfolioLinkMob = document.querySelector("#portfolio_link_mob");
+
 // Toggle mobile menu visibility
 menuBtn.addEventListener('click', () => {
-    if( mobileMenuNav["style"].display == "block"){
-        menyBtnText["style"].color="black";
-
-        mobileMenuNav["style"].display="none";
-        menyBtnText.textContent = "...";
-        mobileMenuNav["style"].opacity="0";
-
+    // Check if the mobile menu is currently displayed
+    if (mobileMenuNav["style"].display == "block") {
+        // If the menu is visible, hide it
+        menuBtnText["style"].color = "black";
+        mobileMenuNav["style"].display = "none";
+        mobileMenuNav["style"].opacity = "0";
+        menuBtnText.textContent = "...";
+    } else {
+        // If the menu is hidden, show it
+        menuBtnText.textContent = "X";
+        menuBtnText.style.color = "maroon";
+        mobileMenuNav.style.display = "block";
+        mobileMenuNav.style.opacity = "1";
     }
-    else{
-        menyBtnText.textContent = "X";
-        menyBtnText["style"].color="maroon";
-        mobileMenuNav["style"].display="block";
-        mobileMenuNav["style"].opacity="1";
-
-    }
-
 });
+
+// Handle interaction with the dropdown menu
+const handleMobInteraction = (e) => {
+
+
+    // Check if the dropdown is currently visible
+    if (dropdownMenuMobile["style"].display === "block") {
+        // Hide the dropdown
+        dropdownMenuMobile["style"].display = "none";
+        dropdownMenuMobile["style"].opacity = "0";
+    } else {
+        // Show the dropdown
+        dropdownMenuMobile["style"].display = "block";
+        dropdownMenuMobile["style"].opacity = "1";
+    }
+};
+
+// Add event listener to the portfolio link
+portfolioLinkMob.addEventListener('click', handleMobInteraction);
 
 // Close the menu when a link is clicked
 mobileMenuNav.querySelectorAll('a').forEach(link => {
