@@ -30,7 +30,10 @@ const portraitFiles = files.filter(file =>
   </div>
   
   <style>
-    #portfolio_images {
+
+    /*DESKTOP */
+    @media screen and (min-width:1300px){
+      #portfolio_images {
       display: grid;
       margin-top: 15em;
       width: 100%;
@@ -76,6 +79,160 @@ const portraitFiles = files.filter(file =>
       font-size: 40px;
       color: white;
       cursor: pointer;
+    }
+    }
+
+        /*LAPTOP */
+      @media screen and (min-width:801px) and (max-width:1299px){
+      #portfolio_images {
+      display: grid;
+      margin-top: 15em;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  
+    .image {
+      width: 100%; /* Adjust to fit within grid cells */
+      height: 500px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+  
+    #portfolio_images img:hover {
+      transform: scale(1.05);
+    }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .lightbox-content {
+      max-width: 600px;
+      max-height: 800px;
+      transition: opacity 0.3s;
+    }
+  
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+    }
+   
+      /*TABLET */
+    @media screen and (min-width:700px) and (max-width:800px){
+      #portfolio_images {
+      display: grid;
+      margin-top: 5em;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  
+    .image {
+      width: 100%; /* Adjust to fit within grid cells */
+      height: 500px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+  
+    #portfolio_images img:hover {
+      transform: scale(1.05);
+    }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .lightbox-content {
+      max-width: 600px;
+      max-height: 800px;
+      transition: opacity 0.3s;
+    }
+  
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+    }
+
+      /*PHONE */
+        @media screen and (min-width:300px)  and (max-width:699px){
+      #portfolio_images {
+      display: grid;
+      margin-top: 5em;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  
+    .image {
+      width: 100%; /* Adjust to fit within grid cells */
+      height: 300px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+  
+    #portfolio_images img:hover {
+      transform: scale(1.05);
+    }
+  
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .lightbox-content {
+      max-width: 600px;
+      max-height: 800px;
+      transition: opacity 0.3s;
+    }
+  
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
     }
   </style>
   

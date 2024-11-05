@@ -450,13 +450,13 @@
         display: none;
         opacity: 0;
         top:100%;
-        width:70%;
-        right:0;
+        width:100%;
+        left:0;
         background-color: white;
         position: absolute;
         transition: 0.6s opasity;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 0;
         height: 90vh;
     }
 
@@ -468,7 +468,8 @@
     #mobile-menu-nav ul li{
         list-style-type: none;
         text-align: center;
-        margin: 2em 0;
+        font-size: 1.2em;
+        margin: 1.6em 0;
     }
 
     #mobile-menu-nav ul li a{
@@ -477,9 +478,6 @@
         text-decoration: none;
     }
 
-    #mobile-menu-nav ul li a:hover{
-        border-bottom: 2px solid black;
-    }
 
     #mobile-menu-container{
         display: block;
@@ -499,7 +497,11 @@
         font-size: 0.8em;
         padding: 5px!important;
     }
-
+    .dropdown-mobile a{
+        font-size: 0.7em;
+        line-height: 1;
+        margin: 0!important;
+    }
     .dropdown a{
         transition: 1s all;
     }
@@ -553,6 +555,8 @@ menuBtn.addEventListener('click', () => {
         mobileMenuNav["style"].display = "none";
         mobileMenuNav["style"].opacity = "0";
         menuBtnText.textContent = "...";
+        dropdownMenuMobile["style"].display = "none";
+        dropdownMenuMobile["style"].opacity = "0";
     } else {
         // If the menu is hidden, show it
         menuBtnText.textContent = "X";
