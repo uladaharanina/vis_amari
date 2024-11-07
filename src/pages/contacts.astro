@@ -2,70 +2,25 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ContactForm from "../components/ContactForm.jsx"; 
 
 ---
 
 <Layout title="Contacts">
-    <Header></Header>
-    <section id="contact_container">
-        <p>
-            "Thank you for considering me to capture your special moments.Whether you're celebrating an engagement, 
-            looking for creative imagery, or seeking a personal portrait,I’m committed to working closely with you to create 
-            stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life."
+  <Header />
+  <section id="contact_container">
+    <p>
+      "Thank you for considering me to capture your special moments. Whether you're celebrating an engagement,
+      looking for creative imagery, or seeking a personal portrait, I’m committed to working closely with you to create
+      stunning, meaningful images that tell your unique story. I look forward to hearing from you and bringing your vision to life."
+    </p>
+    <span>- Suzanna</span>
+  </section>
 
-        </p>
-        <span>- Suzanna</span>
-
-           
-    </section>
-    <h3>Contact Me</h3>
-    <form action="#" method="POST">
-        <input type="text" id="fullname" name="fullname" placeholder="Your name " required>
-    
-        <input type="text" id="pronouns" name="pronouns" placeholder="Pronouns" required>
-    
-        <input type="email" id="email" name="email" placeholder="Email" required>
-    
-        <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
-    
-        <label>How would you prefer to be contacted? *</label>
-        <select name="contactMethod" required>
-            <option value="email">Email</option>
-            <option value="text">Text</option>
-        </select>
-    
-        <label for="services">What type of services are you interested in? *</label>
-        <select id="services" name="services" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Love Story">Love Story</option>
-            <option value="Maternity">Maternity</option>
-            <option value="Creative">Creative</option>
-            <option value="Portrait">Portrait</option>
-            <option value="Other">Other</option>
-
-        </select>
-    
-        <label for="date">What is the date you would like to schedule your session? *</label>
-        <input type="date" id="date" name="date" required>
-    
-        <label for="source">How did you find Vis Amari Photography? *</label>
-        <select id="source" name="source" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Instragram">Instragram</option>
-            <option value="Facebook">Facebook</option>
-            <option value="TikTok">TikTok</option>
-            <option value="Threads">Threads</option>
-            <option value="friend_referral">Friend Referral</option>
-        </select>
-    
-        <label for="about">Share your story with me! What should I know about you to bring our project to life?</label>
-        <textarea id="about" name="about" rows="4" placeholder="Tell me a bit about yourself and what you're looking for from me!" required></textarea>
-    
-        <p>Submitting an inquiry opts you in for text message and email communication from Vis Amari Photography.
-    
-        <input type="submit" value="Submit Inquiry">
-    </form>
-    <Footer></Footer>
+  <h3>Contact Me</h3>
+  <ContactForm client:load></ContactForm>
+  
+  <Footer />
 </Layout>
 
 <style>
@@ -115,66 +70,6 @@ import Footer from "../components/Footer.astro";
 
     }
 
-    form {
-        background: #fff;
-        padding: 20px;
-        width:900px;
-        margin: 2em auto;
-        padding: 20px 50px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    }
-    label {
-        display: block;
-        color:rgb(104, 98, 91);
-        font-family: Joan, sans-serif;
-        margin: 10px 0 5px;
-    }
-    input, select, textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 2px solid #9a9a9a8e;
-        height: 50px;
-        font-family: Joan, sans-serif;
-        text-transform: uppercase;
-        border-radius: 4px;
-    }
-    input[type="submit"] {
-        background-color: #000000;
-        color: white;
-        font-family: Joan, sans-serif;
-        font-weight: 400;
-        width:500px;
-        font-size: 1.2em;
-        margin: 2em auto;
-        display: block;
-        background-color: #ffffff;
-        color: rgb(0, 0, 0);
-        border: 1.5px solid black;
-        text-transform: uppercase;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #232323;
-        color: rgb(255, 255, 255);
-        border: 2px solid rgb(0, 0, 0);
-
-    }
-
-    select{
-        color:rgb(149, 149, 149);
-
-    }
-
-    input::placeholder{
-        color:rgb(149, 149, 149);
-        text-transform: uppercase;
-        font-family: Joan, sans-serif;
-
-
-    }
     }
 
     /*LAPTOP*/
@@ -223,66 +118,7 @@ import Footer from "../components/Footer.astro";
 
     }
 
-    form {
-        background: #fff;
-        padding: 20px;
-        width:700px;
-        margin: 2em auto;
-        padding: 20px 50px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    }
-    label {
-        display: block;
-        color:rgb(104, 98, 91);
-        font-family: Joan, sans-serif;
-        margin: 10px 0 5px;
-    }
-    input, select, textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 2px solid #9a9a9a8e;
-        height: 50px;
-        font-family: Joan, sans-serif;
-        text-transform: uppercase;
-        border-radius: 4px;
-    }
-    input[type="submit"] {
-        background-color: #000000;
-        color: white;
-        font-family: Joan, sans-serif;
-        font-weight: 400;
-        width:500px;
-        font-size: 1.2em;
-        margin: 2em auto;
-        display: block;
-        background-color: #ffffff;
-        color: rgb(0, 0, 0);
-        border: 1.5px solid black;
-        text-transform: uppercase;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #232323;
-        color: rgb(255, 255, 255);
-        border: 2px solid rgb(0, 0, 0);
-
-    }
-
-    select{
-        color:rgb(149, 149, 149);
-
-    }
-
-    input::placeholder{
-        color:rgb(149, 149, 149);
-        text-transform: uppercase;
-        font-family: Joan, sans-serif;
-
-
-    }
+   
     }
 
         /*TABLET*/
@@ -328,66 +164,7 @@ import Footer from "../components/Footer.astro";
         margin-left: 25%;
     }
 
-    form {
-        background: #fff;
-        padding: 40px 20px;
-        width:500px;
-        margin: 2em auto;
-        padding: 20px 50px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    }
-    label {
-        display: block;
-        color:rgb(104, 98, 91);
-        font-family: Joan, sans-serif;
-        margin: 10px 0 5px;
-    }
-    input, select, textarea {
-        width: 90%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 2px solid #9a9a9a8e;
-        height: 50px;
-        font-family: Joan, sans-serif;
-        text-transform: uppercase;
-        border-radius: 4px;
-    }
-    input[type="submit"] {
-        background-color: #000000;
-        color: white;
-        font-family: Joan, sans-serif;
-        font-weight: 400;
-        width:500px;
-        font-size: 1.2em;
-        margin: 2em auto;
-        display: block;
-        background-color: #ffffff;
-        color: rgb(0, 0, 0);
-        border: 1.5px solid black;
-        text-transform: uppercase;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #232323;
-        color: rgb(255, 255, 255);
-        border: 2px solid rgb(0, 0, 0);
-
-    }
-
-    select{
-        color:rgb(149, 149, 149);
-
-    }
-
-    input::placeholder{
-        color:rgb(149, 149, 149);
-        text-transform: uppercase;
-        font-family: Joan, sans-serif;
-
-
-    }
+  
     }
 
             /*PHONE*/
@@ -428,69 +205,7 @@ import Footer from "../components/Footer.astro";
         font-size: 1.2em;
     }
 
-    form {
-        background: #fff;
-        width:90%;
-        max-width: 500px;
-        margin: 2em auto;
-        padding: 20px 0;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    }
-    label {
-        display: block;
-        color:rgb(104, 98, 91);
-        font-family: Joan, sans-serif;
-        margin: 10px 0 5px;
-    }
-    input, select, textarea {
-        width: 90%;
-        max-width: 450px;
-
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 2px solid #9a9a9a8e;
-        height: 100%;
-        max-height: 50px;
-        font-family: Joan, sans-serif;
-        text-transform: uppercase;
-        border-radius: 4px;
-    }
-    input[type="submit"] {
-        background-color: #000000;
-        color: white;
-        font-family: Joan, sans-serif;
-        font-weight: 400;
-        width:95%;
-        font-size: 1.2em;
-        margin: 2em auto;
-        display: block;
-        background-color: #ffffff;
-        color: rgb(0, 0, 0);
-        border: 1.5px solid black;
-        text-transform: uppercase;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #232323;
-        color: rgb(255, 255, 255);
-        border: 2px solid rgb(0, 0, 0);
-
-    }
-
-    select{
-        color:rgb(149, 149, 149);
-
-    }
-
-    input::placeholder{
-        color:rgb(149, 149, 149);
-        text-transform: uppercase;
-        font-family: Joan, sans-serif;
-
-
-    }
+ 
     }
  
 </style>

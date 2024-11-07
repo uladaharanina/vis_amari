@@ -532,7 +532,7 @@ function showSubMenu() {
 
 function hideSubMenu() {
     //dropdownMenu.style.display = "none"; // Hide the menu
-    dropdownMenu.style.opacity = "0"; // Show the menu
+    dropdownMenu["style"].opacity = "0"; // Show the menu
     //dropdownMenuMobile["style"].opacity = "1"
 
 }
@@ -560,9 +560,9 @@ menuBtn.addEventListener('click', () => {
     } else {
         // If the menu is hidden, show it
         menuBtnText.textContent = "X";
-        menuBtnText.style.color = "maroon";
-        mobileMenuNav.style.display = "block";
-        mobileMenuNav.style.opacity = "1";
+        menuBtnText["style"].color = "maroon";
+        mobileMenuNav["style"].display = "block";
+        mobileMenuNav["style"].opacity = "1";
     }
 });
 

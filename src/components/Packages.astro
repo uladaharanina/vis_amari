@@ -261,13 +261,13 @@ const priceContainers = document.querySelectorAll('.price_container');
 
         container.addEventListener('mouseenter', () => {
             container.querySelector('img').style.filter = 'brightness(0.1)';
-            container.querySelector('.price_container').style.top = '-300px';
+            container.querySelector('.price_container')["style"].top = '-300px';
             gradient.classList.add('hovered');
         });
 
         container.addEventListener('mouseleave', () => {
             container.querySelector('img').style.filter = 'brightness(0.70)';
-            container.querySelector('.price_container').style.top = '-120px';
+            container.querySelector('.price_container')["style"].top = '-120px';
 
             gradient.classList.remove('hovered');
         });

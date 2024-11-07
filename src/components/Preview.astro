@@ -1,134 +1,111 @@
-<section class="slider">
-    <div class="slider-wrapper">
-        <img src="./preview/1.jpg" alt="Image 1" loading="lazy" >
-        <img src="./preview/2.jpg" alt="Image 2" loading="lazy" >
-        <img src="./preview/3.jpg" alt="Image 3" loading="lazy" >
-        <img src="./preview/4.jpg" alt="Image 4" loading="lazy" >
-        <img src="./preview/5.jpg" alt="Image 5" loading="lazy" >
-        <img src="./preview/6.jpg" alt="Image 6" loading="lazy" >
-        <img src="./preview/7.jpg" alt="Image 7" loading="lazy" >
+---
 
-    </div>
-</section>
+const images = [
+  {
+    class: "carousel-slide",
+    src: "./preview/1.jpg",
+    alt: "Image 1",
+  },
+  {
+    class: "carousel-slide",
+    src: "./preview/2.jpg",
+    alt: "Image 2",
+  },
+  {
+    class: "carousel-slide",
+    src: "./preview/3.jpg",
+    alt: "Image 3",
+  },
+  {
+    class: "carousel-slide",
+    src: "./preview/4.jpg",
+    alt: "Image 4",
+  },
+  {
+    class: "carousel-slide",
+    src: "./preview/5.jpg",
+    alt: "Image 5",
+  },
+  {
+    class: "carousel-slide",
+    src: "./preview/6.jpg",
+    alt: "Image 6",
+  },
+  {
+    class: "carousel-slide",
+    src: "./preview/7.jpg",
+    alt: "Image 7",
+  }
+];
 
+---
 
-<style>
+<ul id="carouselTargetList">
+  {
+    images.map((img, index) => {
+      return (
+        <li class="list_holder">
+            <a>
+            <img src={img.src} alt={img.alt} class={img.class}/>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
 
-    /**DESKTOP */
-    @media screen and (min-width:1000px) {
-.slider {
-        position: relative;
-        overflow: hidden;
-        left:auto;
-        right: auto;
-        width: 95%;
-        margin: 15em auto 10em;
-    }
+  <style>
+    #carouselTargetList {
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+  width:95%;
+  margin: auto;
+  margin-top: 17em;
+  padding: 20px 0;
+}
 
-    .slider-wrapper {
-        display: flex;
-        transition:all 0.5s ease-in-out;
-        gap:20px;
-        width:100%;
-        /*width: calc(100% * 7 / 4); /* Adjusted for 7 images */
-    }
-
-    .slider img {
-        width: calc(100% / 5); /* Show 5 images at a time */
-        flex-shrink: 0; /* Prevent images from shrinking */
-        object-fit: cover;
-        width:383px;
-        max-height: 610px; /* Adjust as needed */
-    }
+.list_holder {
+    list-style-type: none;
 }
 
 
-    /**TABLET */
-    @media screen and (min-width:601px) and (max-width:999px){
-        .slider {
-        position: relative;
-        overflow: hidden;
-        left:auto;
-        right: auto;
-        width: 95%;
-        margin: 15em auto 9em;
-    }
 
-    .slider-wrapper {
-        display: flex;
-        transition:all 0.5s ease-in-out;
-        gap:20px;
-        width:100%;
-        width: calc(100% * 7 / 4); /* Adjusted for 7 images */
-    }
+.carousel-slide {
+  flex: 0 0 auto;
+  width: 300px;  /* Adjust to the size you want */
+  height: auto;
+}
 
-    .slider img {
-        width: calc(100% / 5); /* Show 5 images at a time */
-        flex-shrink: 0; /* Prevent images from shrinking */
-        object-fit: cover;
-        width:383px;
-        max-height: 610px; /* Adjust as needed */
-    }
-    }
+.carousel-slide img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
 
-        /**MOBILE */
-        @media screen and (max-width:600px) {
-        .slider {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        margin: 5em 0 5em;
-    }
-
-    .slider-wrapper {
-        display: flex;
-        transition:all 0.5s ease-in-out;
-        gap:40px;
-        width: calc(100% * 10 / 4); /* Adjusted for 7 images */
-    }
-
-    .slider img {
-        width: calc(100% / 4); /* Show 5 images at a time */
-        flex-shrink: 0; /* Prevent images from shrinking */
-        object-fit: cover;
-        width:300px;
-        max-height: 610px; /* Adjust as needed */
-    }
-    }
-  
-</style>
-
-
+  </style>
 
 <script>
-const sliderWrapper = document.querySelector('.slider-wrapper');
-const images = document.querySelectorAll('.slider img');
-const totalImages = images.length;
-const imagesToShow = 6; // Number of images to show at once
-let offset = 0;
-let currentIndex = 0;
+    const carouselWrapper = document.querySelector('#carouselTargetList');
 
-function showNextImages() {
-    currentIndex = (currentIndex + 1) % totalImages; // Cycle through all images
-    if(currentIndex < 6){
-        offset = -currentIndex * (100 / imagesToShow); // Calculate offset based on images to show
+    carouselWrapper.addEventListener('click', () => {alert('You clicked')});
+  
+    let scrollPosition = 0;
+    const scrollStep = 380;  // Change this based on the width of your slides
+    const delay = 2000;  // Delay in milliseconds (3 seconds)
 
-    }
-    else if(currentIndex == 6){
-        while(currentIndex != 2){
-            currentIndex = (currentIndex - 1) % totalImages; // Cycle through all images back
-            offset = currentIndex * (50 / imagesToShow); // Calculate offset based on images to show
-            sliderWrapper.style.transform = `translateX(${-offset}%)`;
-        }
-    }
-    else{
-        offset = -currentIndex * (50 / imagesToShow); // Calculate offset based on images to show
-    }
-
-    sliderWrapper.style.transform = `translateX(${offset}%)`;
-}
-
-// Start the slider
-setInterval(showNextImages, 2000); // Change images every 2 seconds
-
-</script>
+    
+  
+    setInterval(() => {
+      if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth) {
+        scrollPosition = 0;  // Reset position when we reach the end
+      } else {
+        scrollPosition += scrollStep;  // Move right by `scrollStep`
+      }
+      carouselWrapper.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth',  // Smooth scrolling effect
+      });
+    }, delay);
+  </script>
+  
