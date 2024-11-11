@@ -3,7 +3,7 @@
 
     <div id="packages_container">
         <div class = "single_package">
-            <img src="./packages/creative-min.jpg"  loading="lazy">
+            <img src="./packages/creative-min.jpg" >
             <div class="price_container">
                 <h5>Creative</h5>
                 <p>starts at $400</p>
@@ -11,14 +11,14 @@
             
         </div>
         <div  class = "single_package">
-            <img src="./packages/lovestory-min.jpg"  loading="lazy">
+            <img src="./packages/lovestory-min.jpg" >
             <div class="price_container">
                 <h5>LOVE STORY</h5>
                 <p>starts at $350</p>
             </div>
         </div>
         <div  class = "single_package">
-            <img src="./packages/maternity-min.jpg"  loading="lazy">
+            <img src="./packages/maternity-min.jpg" >
             <div class="price_container">
                 <h5>MOTHERHOOD</h5>
                 <p>starts at $400</p>
@@ -26,7 +26,7 @@
         
         </div>
         <div class = "single_package">
-            <img src="./packages/portrait-min.jpg"  loading="lazy">
+            <img src="./packages/portrait-min.jpg">
             <div class="price_container">
                 <h5>PORTRAIT</h5>
                 <p>starts at $350</p>
@@ -40,7 +40,7 @@
 <style>
 
 /*DESTOP*/
-@media screen and (min-width:1400px){
+@media screen and (min-width:1300px){
 
     section{
         margin-top: 10em;
@@ -104,9 +104,73 @@
         opacity: 1; /* Show gradient on hover */
     }
 }
+/*LAPTOP */
+@media screen and (min-width:1001px) and (max-width:1299px){
+    section{
+        margin-top: 10em;
+        width:90%;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+        margin: 5em auto;
+        max-width: 1700px;
+    }
+    section h3{
+        font-size: 25px;
+        font-weight: 400;
+        font-family: Joan, sans-serif;
+        text-transform: uppercase;
+    }
+    #packages_container{
+        display: flex;
+        align-self: center;
+        gap:30px;
+    }
+
+
+
+    section div img{
+        width:100%;
+        height:555px;
+        object-fit:cover;
+        filter: brightness(0.55);
+        transition: filter 0.3s ease-out; 
+    }
+
+    #packages_container h5{
+        font-size: 1.5em;
+        text-align: center;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    #packages_container p{
+        text-align: center;
+    }
+
+    .price_container{
+        position: relative;
+        color: white;
+        top:-120px;
+        transition: all 0.4s ease-out;
+    }
+    .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+        opacity: 0;
+        transition: opacity 0.3s  ease-in-out; /* Smooth transition for overlay */
+    }
+
+    .hovered .gradient-overlay {
+        opacity: 1; /* Show gradient on hover */
+    }
+}
 
 /*TABLET*/
-@media screen and (min-width:701px) and (max-width:1399px){
+@media screen and (min-width:701px) and (max-width:1000px){
 
 section{
     margin-top: 10em;

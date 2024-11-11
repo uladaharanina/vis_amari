@@ -56,7 +56,7 @@ const images = [
 
   <style>
       /**DESKTOP */
-      @media screen and (min-width:1000px) {
+      @media screen and (min-width:1400px) {
         #carouselTargetList {
         display: flex;
         overflow-x: hidden;
@@ -85,6 +85,38 @@ const images = [
         object-fit: cover;
       }
       }
+
+            /**LAPTOP */
+            @media screen and (min-width:1000px) and (max-width:1399px) {
+        #carouselTargetList {
+        display: flex;
+        overflow-x: hidden;
+        gap: 20px;
+        width:95%;
+        margin: auto;
+        margin-top: 7em;
+        padding: 20px 0;
+      }
+
+      .list_holder {
+          list-style-type: none;
+      }
+
+
+
+      .carousel-slide {
+        flex: 0 0 auto;
+        width: 300px;  /* Adjust to the size you want */
+        height: auto;
+      }
+
+      .carousel-slide img {
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+      }
+      }
+
 
  /**TABLET */
  @media screen and (min-width:601px) and (max-width:999px){

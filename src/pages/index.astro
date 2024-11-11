@@ -6,9 +6,18 @@ import Preview from '../components/Preview.astro';
 import About from '../components/About.astro';
 import Footer from '../components/Footer.astro';
 import Packages from '../components/Packages.astro'
+
+import LoadingScreen from '../components/LoadingScreen.jsx';  // Path to your React component
+import { useState, useEffect } from 'react';
+import { getAssets } from '../utilities/loadingAssets';
+
+const assets = getAssets();
+
 ---
 
 <Layout title="Welcome to Astro.">
+	<LoadingScreen assets={assets}></LoadingScreen>
+
 	<Header></Header>
 	<main>
 		<Preview></Preview>
@@ -44,5 +53,6 @@ import Packages from '../components/Packages.astro'
 <script>
 	window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+	document.querySelector('.loading-screen')["style"].display = 'none';
 });
-</script>
+    </script>

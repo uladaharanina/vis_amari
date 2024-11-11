@@ -80,6 +80,7 @@
         top:0;
         z-index: 999;
         text-transform: uppercase;
+        transition: 0.5s all;
     }
 
     #identity_container{
@@ -192,15 +193,17 @@
         top:0;
         z-index: 999;
         text-transform: uppercase;
+        transition: 0.5s all;
     }
 
     #identity_container{
         text-align: center;
-        margin-top: 2em;
+        margin-top: 0.6em;
+
     }
 
     #Site_name{
-        font-size: 24px;
+        font-size: 20px;
         margin: 0;
         margin-top: 20px;
         padding: 0;
@@ -208,12 +211,14 @@
 
     #identity_container:last-child{
         margin: 0;
+        font-size: 15px;
+        border: 2px solid blue;
         padding: 0;
     }
 
     #general_menu{
         display: flex;
-        margin: 3em auto;
+        margin: 1em auto;
         width:90%;
         text-align: center;
         justify-content: center;
@@ -298,6 +303,8 @@
         top:0;
         z-index: 999;
         text-transform: uppercase;
+        transition: 0.5s all;
+
     }
 
     #identity_container{
@@ -403,6 +410,7 @@
         border:0;
         position: fixed;
         width: 100%;
+        transition: 0.5s all;
         top:0;
         z-index: 999;
         margin: 0 auto;
@@ -512,6 +520,38 @@
 </style>
 
 <script>
+
+/**HANDLE HEADER SCROLLING */
+
+// Get the first <header> element
+let header = document.querySelector("header");
+let scrollTimeout = null;
+
+// Set the initial state of the header (hide it if scrolled beyond 200px)
+if (window.scrollY < 200) {
+    header.style.display = 'block';  // Show header if scroll is less than 200px
+    header["style"].opacity = "1";  // Show header if scroll is less than 200px
+
+} 
+
+
+
+// Add a scroll event listener to update header visibility as the user scrolls
+window.onscroll = function() {
+
+    clearTimeout(scrollTimeout);
+    //header.style.display = 'block';
+    header["style"].opacity = "1";  
+
+    setTimeout(() => {
+        if(scrollY > 200){
+            //header.style.display = 'none';
+            header["style"].opacity = "0";
+        }
+       
+    }, 2500)
+}
+
 
 
 /*DESKTOP*/

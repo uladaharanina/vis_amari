@@ -1,9 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import fs from 'node:fs/promises';
-import path from 'node:path';
-
-
+import LoadingScreen from './LoadingScreen'; 
 const folderPath = `./public/${Astro.params.portfolioType}`;
 
 // Read the directory and filter out only image files
@@ -14,11 +12,12 @@ const portraitFiles = files.filter(file =>
 
 ---
 <section id="portfolio_images">
+  <LoadingScreen assets={portraitFiles}></LoadingScreen>
+
     {portraitFiles.map((file) => (
       <img 
         src={`/${Astro.params.portfolioType}/${file}`} 
         alt={file} 
-        loading="lazy" 
         class="image"
       />
     ))}
@@ -86,9 +85,9 @@ const portraitFiles = files.filter(file =>
       @media screen and (min-width:801px) and (max-width:1299px){
       #portfolio_images {
       display: grid;
-      margin-top: 15em;
+      margin-top: 10em;
       width: 100%;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 10px;
     }
   
@@ -262,6 +261,12 @@ document.addEventListener("DOMContentLoaded", () => {
   images.forEach((image) => {
     image.addEventListener("click", () => openLightbox(image.src));
   });
+});
+
+
+	window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+	document.querySelector('.loading-screen')["style"].display = 'none';
 });
 
 const lightbox = document.querySelector(".lightbox");
