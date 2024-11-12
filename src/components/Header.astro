@@ -526,6 +526,16 @@
 // Get the first <header> element
 let header = document.querySelector("header");
 let scrollTimeout = null;
+let isHovering = false;
+
+header.addEventListener("mouseenter", () => {
+    header["style"].opacity = "1";  // Show header if scroll is less than 200px
+    isHovering = true;
+});
+
+header.addEventListener("mouseleave", () => {
+    isHovering = false;
+});
 
 // Set the initial state of the header (hide it if scrolled beyond 200px)
 if (window.scrollY < 200) {
@@ -544,12 +554,11 @@ window.onscroll = function() {
     header["style"].opacity = "1";  
 
     setTimeout(() => {
-        if(scrollY > 200){
-            //header.style.display = 'none';
+        if(scrollY > 200 && isHovering == false) {
             header["style"].opacity = "0";
         }
        
-    }, 2500)
+    }, 1500)
 }
 
 

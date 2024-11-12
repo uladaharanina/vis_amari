@@ -3,7 +3,8 @@ import '../styles/Loading.css'
 
 const LoadingScreen = ({ assets }) => {
     const [loadedAssets, setLoadedAssets] = useState(0);
-    const [totalAssets, setTotalAssets] = useState(assets.length);
+    const [totalAssets] = useState(assets.length);  // We don't need to change totalAssets, it's constant
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         // Track loading progress of each asset
@@ -11,21 +12,20 @@ const LoadingScreen = ({ assets }) => {
             const img = new Image();
             img.src = asset;
             img.onload = () => {
-                setLoadedAssets((prev) => prev + 1);
+                setLoadedAssets((prev) => {
+                    const newLoadedAssets = prev + 1;
+                    const newProgress = Math.floor((newLoadedAssets / totalAssets) * 100); // Recalculate progress
+                    setProgress(newProgress); // Update progress after the increment
+                    return newLoadedAssets;
+                });
             };
         });
-    }, [assets]);
-
-    const progress = (loadedAssets / totalAssets) * 100;
+    }, [assets, progress]);
 
     return (
         <div className="loading-screen">
             <div className="loading-message">
                 <h2>Loading...</h2>
-                <div className="progress-bar">
-                    <div className="progress" style={{ width: `${progress}%` }}></div>
-                </div>
-                <p>{Math.floor(progress)}%</p>
             </div>
         </div>
     );

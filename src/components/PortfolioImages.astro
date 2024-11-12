@@ -18,8 +18,8 @@ const portraitFiles = files.filter(file =>
       <img 
         src={`/${Astro.params.portfolioType}/${file}`} 
         alt={file} 
-        class="image"
-      />
+        class="image"/>
+      
     ))}
   </section>
   
@@ -93,7 +93,7 @@ const portraitFiles = files.filter(file =>
   
     .image {
       width: 100%; /* Adjust to fit within grid cells */
-      height: 500px;
+      height: 350px;
       object-fit: cover;
       cursor: pointer;
       transition: transform 0.3s ease;
@@ -118,7 +118,7 @@ const portraitFiles = files.filter(file =>
   
     .lightbox-content {
       max-width: 600px;
-      max-height: 800px;
+      max-height: 500px;
       transition: opacity 0.3s;
     }
   
@@ -236,9 +236,6 @@ const portraitFiles = files.filter(file =>
   </style>
   
   <script>
-
-
-
 
 
 function openLightbox(src) {

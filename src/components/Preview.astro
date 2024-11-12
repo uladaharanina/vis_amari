@@ -185,13 +185,13 @@ const images = [
   </style>
 
 <script>
-    const carouselWrapper = document.querySelector('#carouselTargetList');
 
-    carouselWrapper.addEventListener('click', () => {alert('You clicked')});
+window.addEventListener('load', () => {
+  const carouselWrapper = document.querySelector('#carouselTargetList');
   
     let scrollPosition = 0;
     const scrollStep = 320;  // Change this based on the width of your slides
-    const delay = 4000;  // Delay in milliseconds (3 seconds)
+    const delay = 3000;  // Delay in milliseconds (3 seconds)
 
     
   
@@ -206,5 +206,7 @@ const images = [
         behavior: 'smooth',  // Smooth scrolling effect
       });
     }, delay);
+});
+    
   </script>
   
