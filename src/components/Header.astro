@@ -4,7 +4,7 @@
     <section id="header_container">
       <div id="identity_container">
         <p id="Site_name">VIS AMARI PHOTOGRAPHY</p>
-        <p>Suzanna Mamatkulava</p>
+        <p id="Site_name_secondary">Suzanna Mamatkulava</p>
       </div>
         <nav>
                 <ul id="general_menu">
@@ -76,6 +76,7 @@
         font-family: Joan;
         padding:10px;
         margin: 0!important;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.224);
         border:0;
         position: fixed;
         width: 100%;
@@ -91,24 +92,31 @@
     }
 
     #Site_name{
-        font-size: 24px;
+        font-size: 34px;
         margin: 0;
         margin-top: 20px;
         padding: 0;
     }
 
-    #identity_container:last-child{
-        margin: 0;
+    #Site_name_secondary{
+        margin-top: 20px;
+        font-size: 18px;
         padding: 0;
     }
 
     #general_menu{
         display: flex;
-        margin: 3em auto;
-        width:930px;
+        margin: 2em auto;
+        max-width:1000px;
+        width:100%;
         text-align: center;
         justify-content: center;
-        gap:100px;
+        gap:60px;
+        font-size: 1.5em;
+    }
+
+    #header_container nav{
+        padding: 0;
     }
 
     header nav li {
@@ -210,36 +218,44 @@
     #identity_container{
         text-align: center;
         margin-top: 0.6em;
-
     }
 
     #Site_name{
-        font-size: 22px;
+        font-size: 20px;
         margin: 0;
         margin-top: 20px;
         padding: 0;
     }
 
-    #identity_container:last-child{
+    #Site_name_secondary{
         margin: 0;
-        font-size: 10px;
-        border: 2px solid blue;
+        font-size: 12px;
         padding: 0;
+        line-height: 1.5;
     }
 
     #general_menu{
         display: flex;
         margin: 1em auto;
-        width:90%;
         text-align: center;
         justify-content: center;
-        gap:30px;
+        gap:20px;
+        font-size: 0.8em;
     }
 
+    header nav{
+        width:70%;
+        margin: auto;
+    }
+
+    header nav ul{
+        padding: 0 0 0 15px ;
+    }
     header nav li {
         list-style-type: none;
         font-family: Joan;
         cursor: pointer;
+
     }
 
     header nav  a{
@@ -607,12 +623,26 @@ function hideSubMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    //Get all links
+    // Get all links in the menu
     const menuLinks = document.querySelectorAll("#general_menu a");
-    console.log(menuLinks);
 
-    //if clicked applied a new 
+    // Loop over each link
+    menuLinks.forEach((link) => {
+        // Add a click event listener for each link
+        link.addEventListener('click', (e) => {
+
+            // Remove 'active_link' class from all links first
+            menuLinks.forEach((otherLink) => {
+                otherLink.classList.remove("active_link");
+            });
+
+            // Add 'active_link' to the clicked link
+            link.classList.add("active_link");
+
+            // Optional: If you're using hrefs for navigation and want to continue navigation, uncomment this line
+            // window.location.href = link.href;
+        });
+    });
 });
 
 
