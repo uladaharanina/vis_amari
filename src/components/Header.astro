@@ -607,25 +607,12 @@ function hideSubMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the current path
-    const currentPath = window.location.pathname;
-    alert(currentPath);
-    // Select all the links in the navigation
-    const links = document.querySelectorAll('nav a');
+    
+    //Get all links
+    const menuLinks = document.querySelectorAll("#general_menu a");
+    console.log(menuLinks);
 
-    // Loop through each link and check if the href matches the current path
-    links.forEach(link => {
-      const linkPath = link.getAttribute('href');  // Get the href of the link
-
-      // If the href matches the current path, add the 'active' class
-      if (currentPath === linkPath) {
-        link.classList.add('active_link');
-      }
-      else{
-        link.classList.remove('active_link');
-
-      }
-    });
+    //if clicked applied a new 
 });
 
 
