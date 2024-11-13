@@ -13,7 +13,7 @@ const images =  await getAssets("packages");
             <img src=`./packages/creative-min.jpg` loading="eager">
             <div class="price_container">
                 <h5>Creative</h5>
-                <p>starts at $400</p>
+                <p class="price_hidden">starts at $400</p>
             </div>
             
         </div>
@@ -21,14 +21,14 @@ const images =  await getAssets("packages");
             <img src="./packages/lovestory-min.jpg" loading="eager" >
             <div class="price_container">
                 <h5>LOVE STORY</h5>
-                <p>starts at $350</p>
+                <p class="price_hidden">starts at $350</p>
             </div>
         </div>
         <div  class = "single_package">
             <img src="./packages/maternity-min.jpg" loading="eager">
             <div class="price_container">
                 <h5>MOTHERHOOD</h5>
-                <p>starts at $400</p>
+                <p class="price_hidden">starts at $400</p>
             </div>
         
         </div>
@@ -36,7 +36,7 @@ const images =  await getAssets("packages");
             <img src="./packages/portrait-min.jpg" loading="eager">
             <div class="price_container">
                 <h5>PORTRAIT</h5>
-                <p>starts at $350</p>
+                <p class="price_hidden">starts at $350</p>
             </div>
           
         </div>
@@ -45,6 +45,8 @@ const images =  await getAssets("packages");
 </section>
 
 <style>
+
+
 
 /*DESTOP*/
 @media screen and (min-width:1300px){
@@ -96,6 +98,18 @@ const images =  await getAssets("packages");
         top:-120px;
         transition: all 0.4s ease-out;
     }
+
+    .price_hidden{
+        opacity: 0;
+        transition: 1s all;
+    }
+
+    .price_active{
+        opacity: 1;
+        transition: 1s all;
+
+    }
+
     .gradient-overlay {
         position: absolute;
         top: 0;
@@ -163,6 +177,17 @@ const images =  await getAssets("packages");
         color: white;
         top:-120px;
         transition: all 0.4s ease-out;
+    }
+
+    .price_hidden{
+        opacity: 0;
+        transition: 1s all;
+    }
+
+    .price_active{
+        opacity: 1;
+        transition: 1s all;
+
     }
     .gradient-overlay {
         position: absolute;
@@ -337,13 +362,16 @@ const priceContainers = document.querySelectorAll('.price_container');
         container.addEventListener('mouseenter', () => {
             container.querySelector('img').style.filter = 'brightness(0.1)';
             container.querySelector('.price_container')["style"].top = '-300px';
+            container.querySelector('.price_hidden').classList.add('price_active');
+            container.querySelector('.price_active').classList.remove('price_hidden');
             gradient.classList.add('hovered');
         });
 
         container.addEventListener('mouseleave', () => {
             container.querySelector('img').style.filter = 'brightness(0.70)';
             container.querySelector('.price_container')["style"].top = '-120px';
-
+            container.querySelector('.price_active').classList.add('price_hidden');
+            container.querySelector('.price_hidden').classList.remove('price_active');
             gradient.classList.remove('hovered');
         });
     });
