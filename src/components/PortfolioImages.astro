@@ -15,10 +15,11 @@ const portraitFiles = files.filter(file =>
   <LoadingScreen assets={portraitFiles}></LoadingScreen>
 
     {portraitFiles.map((file) => (
-      <img 
+      <img
         src={`/${Astro.params.portfolioType}/${file}`} 
         alt={file} 
-        class="image"/>
+        class="image"
+        loading="eager"/>
       
     ))}
   </section>
@@ -45,6 +46,7 @@ const portraitFiles = files.filter(file =>
       height: 500px;
       object-fit: cover;
       cursor: pointer;
+      opacity: 1s ease-in-out;
       transition: transform 0.3s ease;
     }
   
@@ -238,6 +240,8 @@ const portraitFiles = files.filter(file =>
   <script>
 
 
+
+
 function openLightbox(src) {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -255,7 +259,9 @@ function closeLightbox() {
 document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll("#portfolio_images img");
 
+
   images.forEach((image) => {
+
     image.addEventListener("click", () => openLightbox(image.src));
   });
 });

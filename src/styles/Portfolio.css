@@ -1,0 +1,47 @@
+/* Style for image container */
+#portfolio_images {
+    display: grid;
+    margin: auto;
+    margin-top: 12em;
+    grid-template-columns: repeat(5, 17%);
+    gap: 48px;
+  }
+  
+  .image-holder {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;  /* Prevents image overflow during transition */
+    background-color: #f4f4f4;  /* Background color while images load */
+  }
+  
+  /* Initial image state with blurred placeholder */
+  .image-lazy {
+    width: 100%;
+    display: block;
+    margin: auto;
+    height: 350px;
+    object-fit: contain;
+    border-radius: 2px;
+    opacity: 0;  /* Initially hidden */
+    filter: blur(10px);  /* Apply blur for placeholder */
+    transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;  /* Smooth fade-in and unblur effect */
+  }
+  
+  /* Final image state after loading */
+  .image {
+    opacity: 1;  /* Fully visible */
+    filter: none;  /* Remove blur effect */
+    width: 100%;
+    display: block;
+    margin: auto;
+    height: 350px;
+    object-fit: contain;
+    transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;  /* Smooth fade-in and unblur effect */
+  }
+  
+  /* Hover effect for images */
+  #portfolio_images img:hover {
+    transform: scale(1.05);  /* Slight zoom on hover */
+  }
+  

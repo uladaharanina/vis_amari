@@ -10,13 +10,12 @@ import Packages from '../components/Packages.astro'
 import LoadingScreen from '../components/LoadingScreen.jsx';  // Path to your React component
 import { getAssets } from '../utilities/loadingAssets';
 
-const assets = getAssets();
+const assets = await getAssets("preview");
 
 ---
 
 <Layout title="Welcome to Astro.">
 	<LoadingScreen assets={assets}></LoadingScreen>
-
 	<Header></Header>
 	<main>
 		<Preview></Preview>
@@ -50,7 +49,9 @@ const assets = getAssets();
 </style>
 
 <script>
+
 	window.addEventListener('load', () => {
+
     document.body.classList.add('loaded');
 	document.querySelector('.loading-screen')["style"].display = 'none';
 });
