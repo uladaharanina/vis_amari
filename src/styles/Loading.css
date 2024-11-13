@@ -11,7 +11,7 @@
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    transition: opacity 0.5s ease; /* Fade-out when loading is complete */
+    transition: opacity 2s ease; /* Fade-out when loading is complete */
     pointer-events: none; /* Disable interaction while loading */
   }
   

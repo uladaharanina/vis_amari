@@ -14,7 +14,7 @@ const assets = await getAssets("preview");
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Vis Amary.">
 	<LoadingScreen assets={assets}></LoadingScreen>
 	<Header></Header>
 	<main>
@@ -35,7 +35,7 @@ const assets = await getAssets("preview");
 	body{
 		background-color: white;
 		opacity: 0; /* Start invisible */
-		transition: opacity 0.5s ease; /* Transition for smooth fade-in */
+		transition: opacity 2s ease-in-out; /* Transition for smooth fade-in */
 	}
 
 	body.loaded {

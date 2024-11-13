@@ -31,6 +31,9 @@ const portraitFiles = files.filter(file =>
   
   <style>
 
+    body{
+        transition: all 2s ease-in-out; /* Transition for smooth fade-in */
+    }
     /*DESKTOP */
     @media screen and (min-width:1300px){
       #portfolio_images {
@@ -39,6 +42,7 @@ const portraitFiles = files.filter(file =>
       width: 100%;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
+      opacity: 1;
     }
   
     .image {
@@ -91,6 +95,8 @@ const portraitFiles = files.filter(file =>
       width: 100%;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
+      transition: 3s all;
+      opacity: 0;
     }
   
     .image {
@@ -257,9 +263,9 @@ function closeLightbox() {
 
 // Wait until the DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {
+  const imagesContainer = document.querySelector("#portfolio_images");
   const images = document.querySelectorAll("#portfolio_images img");
-
-
+  imagesContainer["style"].opacity = 1;
   images.forEach((image) => {
 
     image.addEventListener("click", () => openLightbox(image.src));
@@ -268,8 +274,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 	window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-	document.querySelector('.loading-screen')["style"].display = 'none';
+    setTimeout(() => {
+      document.querySelector('.loading-screen')["style"].display = 'none';
+    }, 1000)
 });
 
 const lightbox = document.querySelector(".lightbox");

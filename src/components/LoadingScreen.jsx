@@ -4,7 +4,6 @@ import '../styles/Loading.css'
 const LoadingScreen = ({ assets }) => {
     const [loadedAssets, setLoadedAssets] = useState(0);
     const [totalAssets] = useState(assets.length);  // We don't need to change totalAssets, it's constant
-    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         // Track loading progress of each asset
@@ -20,7 +19,7 @@ const LoadingScreen = ({ assets }) => {
                 });
             };
         });
-    }, [assets, progress]);
+    }, [assets]);
 
     return (
         <div className="loading-screen">
