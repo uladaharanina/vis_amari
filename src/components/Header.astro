@@ -65,6 +65,8 @@
 
 
 <style>
+
+
 /*DESKTOP*/
     @media screen and (min-width:1400px){
         
@@ -122,6 +124,14 @@
     }
 
     header nav li a:hover{
+        border-bottom:2px solid black;
+    }
+
+    .notactive_link{
+        border-bottom:2px solid rgb(255, 255, 255);
+    }
+
+    .active_link{
         border-bottom:2px solid black;
     }
 
@@ -191,6 +201,7 @@
         position: fixed;
         width: 100%;
         top:0;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.224);
         z-index: 999;
         text-transform: uppercase;
         transition: 0.5s all;
@@ -203,7 +214,7 @@
     }
 
     #Site_name{
-        font-size: 20px;
+        font-size: 22px;
         margin: 0;
         margin-top: 20px;
         padding: 0;
@@ -211,7 +222,7 @@
 
     #identity_container:last-child{
         margin: 0;
-        font-size: 15px;
+        font-size: 10px;
         border: 2px solid blue;
         padding: 0;
     }
@@ -234,10 +245,19 @@
     header nav  a{
         color: black;
         border-bottom:2px solid rgb(255, 255, 255);
+        transition: 1s all;
         text-decoration: none;
     }
 
     header nav li a:hover{
+        border-bottom:2px solid black;
+    }
+
+    .notactive_link{
+        border-bottom:2px solid rgb(255, 255, 255);
+    }
+
+    .active_link{
         border-bottom:2px solid black;
     }
 
@@ -554,7 +574,7 @@ window.onscroll = function() {
     header["style"].opacity = "1";  
 
     setTimeout(() => {
-        if(scrollY > 200 && isHovering == false) {
+        if(scrollY > 200 && isHovering == false && window.innerWidth > 800) {
             header["style"].opacity = "0";
         }
        
@@ -585,6 +605,28 @@ function hideSubMenu() {
     //dropdownMenuMobile["style"].opacity = "1"
 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the current path
+    const currentPath = window.location.pathname;
+    alert(currentPath);
+    // Select all the links in the navigation
+    const links = document.querySelectorAll('nav a');
+
+    // Loop through each link and check if the href matches the current path
+    links.forEach(link => {
+      const linkPath = link.getAttribute('href');  // Get the href of the link
+
+      // If the href matches the current path, add the 'active' class
+      if (currentPath === linkPath) {
+        link.classList.add('active_link');
+      }
+      else{
+        link.classList.remove('active_link');
+
+      }
+    });
+});
 
 
 /*MOBILE*/
