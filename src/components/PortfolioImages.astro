@@ -24,11 +24,6 @@ const portraitFiles = files.filter(file =>
     ))}
   </section>
   
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" />
-  </div>
-  
   <style>
 
     body{
@@ -247,7 +242,7 @@ const portraitFiles = files.filter(file =>
 
 
 
-
+/*
 function openLightbox(src) {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -260,6 +255,8 @@ function closeLightbox() {
   const lightbox = document.getElementById("lightbox");
   lightbox.style.display = "none";
 }
+
+*/
 
 // Wait until the DOM content is loaded
 document.addEventListener("DOMContentLoaded", () => {

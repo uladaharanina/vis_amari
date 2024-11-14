@@ -153,7 +153,7 @@ const images = [
         display: flex;
         overflow-x: hidden;
         gap: 10px;
-        width:99%;
+        width:100%;
         margin: auto;
         margin-top: 5em;
         margin-bottom: 3em;
@@ -180,26 +180,41 @@ const images = [
   </style>
 
 <script>
-
 window.addEventListener('load', () => {
   const carouselWrapper = document.querySelector('#carouselTargetList');
-  
-    let scrollPosition = 0;
-    const scrollStep = window.innerWidth < 600 ? window.innerWidth + 30 : 220;  
-    const delay = 1500;  // Delay in milliseconds (3 seconds)
+  const images = carouselWrapper.querySelectorAll('img');
 
-    setInterval(() => {
-      if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth) {
-        scrollPosition = 0;  // Reset position when we reach the end
-      } else {
-        scrollPosition += scrollStep;  // Move right by `scrollStep`
+  let scrollPosition = 0;
+  let miniStep = 0;  // Start with no mini step
+  const delay = 1500;  // Delay between scrolls in milliseconds (1.5 seconds)
+
+  // Ensure we have at least one image to calculate width
+  const imageWidth = images.length > 0 ? images[0].offsetWidth : 220;  // Default to 220 if no images are found
+  let isReachedTheEnd = false;
+  setInterval(() => {
+    // Check if we have reached the end of the carousel
+    if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
+      // Reset the scroll position and increase the miniStep for faster scrolling
+      isReachedTheEnd = true;
+      scrollPosition -= imageWidth + miniStep;
+      miniStep += 10;  // Increase miniStep to make the scroll move faster next time
+      if(scrollPosition < 100){
+        scrollPosition = 0;
+        isReachedTheEnd = false;
       }
-      carouselWrapper.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth',  // Smooth scrolling effect
-      });
-    }, delay);
+    } else {
+      // Scroll to the right
+      scrollPosition += imageWidth + miniStep;  // Move right by image width + miniStep
+    }
+
+    // Scroll with smooth behavior
+    carouselWrapper.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth',
+    });
+  }, delay);
 });
+
     
   </script>
   
