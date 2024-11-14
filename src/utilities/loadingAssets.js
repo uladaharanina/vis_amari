@@ -15,7 +15,7 @@ export const getAssets = async (foldername) => {
         const previewFilesDir = await fs.promises.readdir(previewFolderPath);
         
         const previewFiles = previewFilesDir.filter(file =>
-        /\.(jpg|jpeg|png|gif)$/i.test(file)); // Ensure only image files are included
+        /\.(jpg|jpeg|png|gif|webp)$/i.test(file)); // Ensure only image files are included
         return previewFiles;
 
     }
