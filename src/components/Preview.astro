@@ -116,7 +116,7 @@ const images = [
 
 
  /**TABLET */
- @media screen and (min-width:601px) and (max-width:999px){
+ @media screen and (min-width:401px) and (max-width:999px){
   #carouselTargetList {
         display: flex;
         overflow-x: hidden;
@@ -148,10 +148,11 @@ const images = [
     }
 
         /**MOBILE */
-        @media screen and (max-width:600px) {
+        @media screen and (max-width:400px) {
           #carouselTargetList {
         display: flex;
         overflow-x: hidden;
+        border:2px solid red;
         gap: 10px;
         width:100%;
         margin: auto;
@@ -172,6 +173,7 @@ const images = [
 
       .list_holder img {
         width: 100%;
+        max-width: 350px;
         height: auto;
         object-fit: cover;
       }
