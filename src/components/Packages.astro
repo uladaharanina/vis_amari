@@ -9,44 +9,53 @@ const images =  await getAssets("packages");
 
     </div>
     <div id="packages_container">
-        <div class = "single_package">
-            <img src=`./packages/creative-min.jpg` loading="eager">
-            <div class="price_container">
-                <h5>Creative</h5>
-                <p class="price_hidden">starts at $400</p>
+        <a  href="/portfolio/creative">
+            <div class = "single_package">
+                <img src=`./packages/creative-min.jpg` loading="eager">
+                <div class="price_container">
+                    <h5>Creative</h5>
+                    <p class="price_hidden">starts at $400</p>
+                </div>
             </div>
-            
-        </div>
-        <div  class = "single_package">
-            <img src="./packages/lovestory-min.jpg" loading="eager" >
-            <div class="price_container">
-                <h5>LOVE STORY</h5>
-                <p class="price_hidden">starts at $350</p>
+        </a>
+        <a href="/portfolio/lovestory">
+            <div class = "single_package">
+                <img src="./packages/lovestory-min.jpg" loading="eager" >
+                <div class="price_container">
+                    <h5>LOVE STORY</h5>
+                    <p class="price_hidden">starts at $350</p>
+                </div>
             </div>
-        </div>
-        <div  class = "single_package">
-            <img src="./packages/maternity-min.jpg" loading="eager">
-            <div class="price_container">
-                <h5>MOTHERHOOD</h5>
-                <p class="price_hidden">starts at $400</p>
+        </a>
+        <a href="/portfolio/maternity">
+            <div class = "single_package" >
+                <img src="./packages/maternity-min.jpg" loading="eager">
+                <div class="price_container">
+                    <h5>MOTHERHOOD</h5>
+                    <p class="price_hidden">starts at $400</p>
+                </div>
             </div>
         
-        </div>
-        <div class = "single_package">
-            <img src="./packages/portrait-min.jpg" loading="eager">
-            <div class="price_container">
-                <h5>PORTRAIT</h5>
-                <p class="price_hidden">starts at $350</p>
+        </a>
+        <a  href="/portfolio/portraits">
+            <div class = "single_package" >
+                <img src="./packages/portrait-min.jpg" loading="eager">
+                <div class="price_container">
+                    <h5>PORTRAIT</h5>
+                    <p class="price_hidden">starts at $350</p>
+                </div>
             </div>
           
-        </div>
+        </a>
     </div>
    
 </section>
 
 <style>
 
-
+#packages_container a{
+    text-decoration: none;
+}
 
 /*DESTOP*/
 @media screen and (min-width:1300px){
@@ -150,10 +159,7 @@ const images =  await getAssets("packages");
         margin: auto;
         gap:40px;
     }
-
-
-
-    section div img{
+    section a img{
         width:100%;
         height:355px;
         object-fit:cover;
