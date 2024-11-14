@@ -15,8 +15,7 @@ import Footer from "../components/Footer.astro";
     <section id="about_info_container">
         <h3>A LITTLE ABOUT ME…</h3>
         <div id="info_wrapper">
-            <div id="about_me_picture_container"></div>
-            <div id="about_content_container">
+            <img src="/about-me.jpg">            <div id="about_content_container">
                 <p>Hi, I’m Suzanna, a passionate portrait photographer based in Raleigh, NC. My greatest joy comes from capturing the raw, authentic stories of the people I work with. I believe that every photograph should do more than simply freeze a moment—it should tell a story, evoke emotion, and capture the essence of who you are.
                     <br>Whether I’m photographing a deeply intimate couple’s session, an artistic editorial shoot, 
                     or the strength and beauty of motherhood, my goal is to create images that resonate on a personal level. 
@@ -106,15 +105,11 @@ import Footer from "../components/Footer.astro";
         margin: 1em 0;
     }
 
-    #about_me_picture_container{
-    max-width: 1200px;
-    min-width: 500px;
-    background: url('/about-me.jpg');
-    height: 600px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: 40%;
-}
+    img{
+        width: 600px;
+        height: 900px;
+        object-fit: cover;
+    }
 
     #info_wrapper p{
         margin-left: 2.1em;
@@ -186,14 +181,10 @@ width: 90%;
 margin: 1em 0;
 }
 
-#about_me_picture_container{
-max-width: 1200px;
-min-width: 400px;
-background: url('/about-me.jpg');
-height: 600px;
-background-size: contain;
-background-repeat: no-repeat;
-background-position-x: 40%;
+img{
+width: 90%;
+height: 700px;
+object-fit:cover;
 }
 
 #info_wrapper p{
@@ -255,15 +246,13 @@ margin-left: 2.1em;
         margin: 0.2em 0;
     }
 
-    #about_me_picture_container{
-    width: 99%;
-    margin: 0 auto;
-    background: url('/about-me.jpg');
-    height: 400px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: 40%;
-}
+    img{
+        width: 90%;
+        display: block;
+        margin: auto;
+        height: 500px;
+        object-fit: cover;
+    }
 
 
     #about_content_container p{
