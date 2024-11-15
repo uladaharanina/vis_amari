@@ -1,44 +1,6 @@
 ---
 import fs from 'node:fs/promises';
 
-const kek = [
-  {
-    class: "carousel-slide",
-    src: "/preview/1.webp",
-    alt: "Image 1",
-  },
-  {
-    class: "carousel-slide",
-    src: "/preview/2.webp",
-    alt: "Image 2",
-  },
-  {
-    class: "carousel-slide",
-    src: "/preview/3.webp",
-    alt: "Image 3",
-  },
-  {
-    class: "carousel-slide",
-    src: "/preview/4.webp",
-    alt: "Image 4",
-  },
-  {
-    class: "carousel-slide",
-    src: "/preview/5.webp",
-    alt: "Image 5",
-  },
-  {
-    class: "carousel-slide",
-    src: "/preview/6.webp",
-    alt: "Image 6",
-  },
-  {
-    class: "carousel-slide",
-    src: "/preview/7.webp",
-    alt: "Image 7",
-  }
-];
-
 const folderPath = `./public/preview`;
 
 // Read the directory and filter out only image files
@@ -157,11 +119,10 @@ const images = files.filter(file =>
       }
     }
 
-        /**MOBILE */
-        @media screen and (max-width:400px) {
-          #carouselTargetList {
+ /**MOBILE */
+ @media screen and (max-width:400px) {
+  #carouselTargetList {
         display: flex;
-        overflow-x: hidden;
         width:100%;
         margin: auto;
         margin-top: 5em;
@@ -175,6 +136,7 @@ const images = files.filter(file =>
 
       .list_holder {
           list-style-type: none;
+          margin: 0 5px;
       }
 
       .list_holder {
@@ -197,61 +159,45 @@ const images = files.filter(file =>
 window.addEventListener('load', () => {
   const carouselWrapper = document.querySelector('#carouselTargetList');
   const images = carouselWrapper.querySelectorAll('img');
-
+  const itemWidth = images[0].offsetWidth + 10;  
+  let speed = 1;
   let scrollPosition = 0;
   let delay = 3000;  // Delay between scrolls in milliseconds (1.5 seconds)
 
   // Ensure we have at least one image to calculate width
-  const imageWidth = images[0].offsetWidth ;  // Default to 220 if no images are found
   let isReachedTheEnd = false;
-  
-  
-  setInterval(() => {
-    if(window.innerWidth > 400){
-            // Check if we have reached the end of the carousel
-    if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
-      // Reset the scroll position and increase the miniStep for faster scrolling
-      isReachedTheEnd = true;
-      scrollPosition -= imageWidth;
-      if(scrollPosition < 100){
-        scrollPosition = 0;
-        isReachedTheEnd = false;
-      }
-    } else {
-      // Scroll to the right
-      scrollPosition += imageWidth;  // Move right by image width + miniStep
-    }
-    }
 
-    /*MOBILE SCROLL */
-    else{
-        // Check if we have reached the end of the carousel
-    if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
-      // Reset the scroll position and increase the miniStep for faster scrolling
-      isReachedTheEnd = true;
-      console.log("TEST")
-      scrollPosition -= imageWidth + 50;
+  // Function to move the carousel smoothly
+  function moveCarousel() {
+
+
+    if(scrollPosition <= carouselWrapper.scrollWidth && isReachedTheEnd){
 
       if(scrollPosition < 200){
-        scrollPosition = 0;
         isReachedTheEnd = false;
       }
-    } else {
-      // Scroll to the right
-      scrollPosition += imageWidth;  // Move right by image width + miniStep
-
     }
+    else if (scrollPosition >= carouselWrapper.scrollWidth) {
+      // If we reached the end, reset to the start
+      isReachedTheEnd = true;
+      scrollPosition -= itemWidth * speed;
     }
 
+      // Increment the scroll position
+      scrollPosition += itemWidth * speed;
 
-    // Scroll with smooth behavior
-    carouselWrapper.scrollTo({
-      left: scrollPosition,
-      behavior: 'smooth',
-    });
-  }, delay);
+    // Apply the smooth scrolling effect by using translateX
+    carouselWrapper["style"].transition = 'transform 1.2s ease-in-out';  // Smooth transition for scrolling
+    carouselWrapper["style"].transform = `translateX(-${scrollPosition}px)`;  // Move the carousel
+
+    // Continue moving the carousel
+    setTimeout(moveCarousel, delay);
+  }
+  /*MOBILE */
+    setTimeout(moveCarousel, 2500);
 });
 
-    
-  </script>
+
+
+</script>
   
