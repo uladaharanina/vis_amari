@@ -128,8 +128,7 @@ const images = files.filter(file =>
         margin-top: 5em;
         margin-bottom: 3em;
         padding: 20px 0;
-        -webkit-transition-timing-function: linear !important;
-      transition-timing-function: linear !important;
+
       }
 
       
@@ -168,14 +167,18 @@ window.addEventListener('load', () => {
   // Function to move the carousel smoothly
   function moveCarousel() {
     // Move right until we reach the end of the carousel
-    if (scrollPosition < carouselWrapper.scrollWidth) {
+    if (scrollPosition < carouselWrapper.scrollWidth && !isReachedTheEnd) {
       scrollPosition += itemWidth * speed;
     }
 
     // If we reach the end, reset to the start
-    if (scrollPosition >= carouselWrapper.scrollWidth) {
+    if (scrollPosition >= carouselWrapper.scrollWidth || isReachedTheEnd) {
       isReachedTheEnd = true;
       scrollPosition -= itemWidth * speed;
+      if(scrollPosition < 300){
+        isReachedTheEnd = false;
+
+      }
     }
 
     // Apply the smooth scrolling effect by using transform
