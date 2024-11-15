@@ -1,5 +1,7 @@
 ---
-const images = [
+import fs from 'node:fs/promises';
+
+const kek = [
   {
     class: "carousel-slide",
     src: "/preview/1.webp",
@@ -37,6 +39,14 @@ const images = [
   }
 ];
 
+const folderPath = `./public/preview`;
+
+// Read the directory and filter out only image files
+const files = await fs.readdir(folderPath);
+const images = files.filter(file =>
+  /\.(jpg|jpeg|png|gif|webp)$/i.test(file) // Ensure only image files are included
+);
+
 ---
 
 <ul id="carouselTargetList">
@@ -45,7 +55,7 @@ const images = [
       return (
         <li class="list_holder">
             <a>
-            <img src={img.src} alt={img.alt} class={img.class} loading="eager"/>
+            <img src={`/preview/${img}`} alt={img} class={img.class} loading="eager"/>
           </a>
         </li>
       );
@@ -123,7 +133,7 @@ const images = [
         gap: 20px;
         width:95%;
         margin: auto;
-        margin-top: 5em;
+        margin-top: 9em;
         margin-bottom: 4em;
         padding: 20px 0;
       }
@@ -152,8 +162,6 @@ const images = [
           #carouselTargetList {
         display: flex;
         overflow-x: hidden;
-        border:2px solid red;
-        gap: 10px;
         width:100%;
         margin: auto;
         margin-top: 5em;
@@ -173,8 +181,8 @@ const images = [
 
       .list_holder img {
         width: 100%;
-        max-width: 350px;
         height: auto;
+        margin: 0;
         object-fit: cover;
       }
     }
@@ -187,27 +195,50 @@ window.addEventListener('load', () => {
   const images = carouselWrapper.querySelectorAll('img');
 
   let scrollPosition = 0;
-  let miniStep = 0;  // Start with no mini step
   const delay = 1500;  // Delay between scrolls in milliseconds (1.5 seconds)
 
   // Ensure we have at least one image to calculate width
-  const imageWidth = images.length > 0 ? images[0].offsetWidth : 220;  // Default to 220 if no images are found
+  const imageWidth = images[0].offsetWidth ;  // Default to 220 if no images are found
   let isReachedTheEnd = false;
+  
+  
   setInterval(() => {
-    // Check if we have reached the end of the carousel
+
+    /*Mobile SCROLL*/
+    if(window.innerWidth > 400){
+            // Check if we have reached the end of the carousel
     if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
       // Reset the scroll position and increase the miniStep for faster scrolling
       isReachedTheEnd = true;
-      scrollPosition -= imageWidth + miniStep;
-      miniStep += 10;  // Increase miniStep to make the scroll move faster next time
+      scrollPosition -= imageWidth + 20;
       if(scrollPosition < 100){
         scrollPosition = 0;
         isReachedTheEnd = false;
       }
     } else {
       // Scroll to the right
-      scrollPosition += imageWidth + miniStep;  // Move right by image width + miniStep
+      scrollPosition += imageWidth + 20;  // Move right by image width + miniStep
     }
+    }
+    else{
+        // Check if we have reached the end of the carousel
+    if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
+      // Reset the scroll position and increase the miniStep for faster scrolling
+      isReachedTheEnd = true;
+      scrollPosition -= imageWidth;
+      console.log(scrollPosition);
+
+      if(scrollPosition < 200){
+        scrollPosition = 0;
+        isReachedTheEnd = false;
+      }
+    } else {
+      // Scroll to the right
+      scrollPosition += imageWidth;  // Move right by image width + miniStep
+
+    }
+    }
+
 
     // Scroll with smooth behavior
     carouselWrapper.scrollTo({
