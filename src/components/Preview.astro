@@ -125,6 +125,7 @@ const images = files.filter(file =>
         display: flex;
         width:100%;
         margin: auto;
+        overflow-x:hidden;
         margin-top: 5em;
         margin-bottom: 3em;
         padding: 20px 0;
@@ -170,7 +171,6 @@ window.addEventListener('load', () => {
   // Function to move the carousel smoothly
   function moveCarousel() {
 
-
     if(scrollPosition <= carouselWrapper.scrollWidth && isReachedTheEnd){
 
       if(scrollPosition < 200){
@@ -181,10 +181,13 @@ window.addEventListener('load', () => {
       // If we reached the end, reset to the start
       isReachedTheEnd = true;
       scrollPosition -= itemWidth * speed;
+      //scrollPosition
     }
-
+    else{
       // Increment the scroll position
       scrollPosition += itemWidth * speed;
+    }
+
 
     // Apply the smooth scrolling effect by using translateX
     carouselWrapper["style"].transition = 'transform 1.2s ease-in-out';  // Smooth transition for scrolling
@@ -193,8 +196,42 @@ window.addEventListener('load', () => {
     // Continue moving the carousel
     setTimeout(moveCarousel, delay);
   }
+
+  // Function to move the carousel in desktop
+
+  function moveCarouselDesktop(){
+    setInterval(() => {
+      console.log("50")
+      // Check if we have reached the end of the carousel
+    if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
+      // Reset the scroll position and increase the miniStep for faster scrolling
+      isReachedTheEnd = true;
+      scrollPosition -= itemWidth;
+      if(scrollPosition < 200){
+        scrollPosition = 0;
+        isReachedTheEnd = false;
+      }
+    } else {
+      // Scroll to the right
+      scrollPosition += itemWidth;  // Move right by image width + miniStep
+    }
+    carouselWrapper.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth',
+    });
+    }, delay)
+  }
+
   /*MOBILE */
-    setTimeout(moveCarousel, 2500);
+
+    if(window.innerWidth < 400){
+      setTimeout(moveCarousel, 2500);
+    }
+    /**DESKTOP */
+    else{
+      moveCarouselDesktop();
+    }
+     
 });
 
 
