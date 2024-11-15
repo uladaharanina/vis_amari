@@ -9,13 +9,13 @@
         <nav>
                 <ul id="general_menu">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/" class="notactive_link">Home</a>
                     </li>
                     <li>
-                        <a href="/about">About</a>
+                        <a href="/about" class="notactive_link">About</a>
                     </li>
                     <li>
-                        <a href="#" id="portfolio_link">Portfolio <i class="fas fa-chevron-down" id="dropdown_icon"></i></a>
+                        <a href="#" class="notactive_link" id="portfolio_link">Portfolio <i class="fas fa-chevron-down" id="dropdown_icon"></i></a>
                         <ul class="dropdown">
                             <li><a href="/portfolio/motherhood">Motherhood</a></li>
                             <li><a href="/portfolio/lovestory">Lovestory</a></li>
@@ -25,11 +25,11 @@
                     </li>
                     
                     <li>
-                        <a href="/#packages">Packages</a>
+                        <a href="/#packages" class="notactive_link">Packages</a>
             
                     </li>
                     <li>
-                        <a href="/contacts">Contacts</a>
+                        <a class="notactive_link" href="/contacts">Contacts</a>
             
                     </li>
                 </ul>
@@ -65,6 +65,17 @@
 
 
 <style>
+
+.notactive_link{
+        border-bottom:2px solid rgb(255, 255, 255);
+        transition: 2s ease all;
+    }
+
+    .active_link{
+        border-bottom:2px solid black;
+        transition: 2s ease all;
+
+    }
 
 
 /*DESKTOP*/
@@ -125,23 +136,18 @@
         cursor: pointer;
     }
 
-    header nav  a{
+ 
+    header nav a{
         color: black;
-        border-bottom:2px solid rgb(255, 255, 255);
+           /*border-bottom:2px solid rgb(255, 255, 255);*/
         text-decoration: none;
     }
+   
 
     header nav li a:hover{
         border-bottom:2px solid black;
     }
 
-    .notactive_link{
-        border-bottom:2px solid rgb(255, 255, 255);
-    }
-
-    .active_link{
-        border-bottom:2px solid black;
-    }
 
     #mobile-menu-nav{
         display: none;
@@ -262,21 +268,26 @@
 
     header nav  a{
         color: black;
-        border-bottom:2px solid rgb(255, 255, 255);
+        /*border-bottom:2px solid rgb(255, 255, 255);*/
         transition: 1s all;
         text-decoration: none;
     }
 
     header nav li a:hover{
         border-bottom:2px solid black;
+        
     }
 
     .notactive_link{
         border-bottom:2px solid rgb(255, 255, 255);
+        transition: 1s all;
+
     }
 
     .active_link{
         border-bottom:2px solid black;
+        transition: 1s all;
+
     }
 
     #mobile-menu-nav{
@@ -631,20 +642,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Loop over each link
     menuLinks.forEach((link) => {
-        // Add a click event listener for each link
-        link.addEventListener('click', (e) => {
 
-            // Remove 'active_link' class from all links first
-            menuLinks.forEach((otherLink) => {
-                otherLink.classList.remove("active_link");
-            });
+        // Set up what page we are at right now
+        const currentPage = window.location.pathname;
+        if(currentPage == '/'){
+            menuLinks[0].classList.add("active_link");
+        }
+        else if(currentPage == '/about'){
+            menuLinks[1].classList.add("active_link");
+        }
+        else if(currentPage.includes('portfolio')){
+            menuLinks[2].classList.add("active_link");
+        }
+        else if(currentPage == '/contacts'){
+            console.log(menuLinks[3]);
+            menuLinks[8].classList.add("active_link");
 
-            // Add 'active_link' to the clicked link
-            link.classList.add("active_link");
+        }
 
-            // Optional: If you're using hrefs for navigation and want to continue navigation, uncomment this line
-            // window.location.href = link.href;
-        });
     });
 });
 

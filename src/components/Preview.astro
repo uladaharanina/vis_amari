@@ -167,7 +167,11 @@ const images = files.filter(file =>
         margin-top: 5em;
         margin-bottom: 3em;
         padding: 20px 0;
+        -webkit-transition-timing-function: linear !important;
+      transition-timing-function: linear !important;
       }
+
+      
 
       .list_holder {
           list-style-type: none;
@@ -195,7 +199,7 @@ window.addEventListener('load', () => {
   const images = carouselWrapper.querySelectorAll('img');
 
   let scrollPosition = 0;
-  const delay = 1500;  // Delay between scrolls in milliseconds (1.5 seconds)
+  let delay = 3000;  // Delay between scrolls in milliseconds (1.5 seconds)
 
   // Ensure we have at least one image to calculate width
   const imageWidth = images[0].offsetWidth ;  // Default to 220 if no images are found
@@ -203,30 +207,30 @@ window.addEventListener('load', () => {
   
   
   setInterval(() => {
-
-    /*Mobile SCROLL*/
     if(window.innerWidth > 400){
             // Check if we have reached the end of the carousel
     if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
       // Reset the scroll position and increase the miniStep for faster scrolling
       isReachedTheEnd = true;
-      scrollPosition -= imageWidth + 20;
+      scrollPosition -= imageWidth;
       if(scrollPosition < 100){
         scrollPosition = 0;
         isReachedTheEnd = false;
       }
     } else {
       // Scroll to the right
-      scrollPosition += imageWidth + 20;  // Move right by image width + miniStep
+      scrollPosition += imageWidth;  // Move right by image width + miniStep
     }
     }
+
+    /*MOBILE SCROLL */
     else{
         // Check if we have reached the end of the carousel
     if (scrollPosition >= carouselWrapper.scrollWidth - carouselWrapper.clientWidth || isReachedTheEnd) {
       // Reset the scroll position and increase the miniStep for faster scrolling
       isReachedTheEnd = true;
-      scrollPosition -= imageWidth;
-      console.log(scrollPosition);
+      console.log("TEST")
+      scrollPosition -= imageWidth + 50;
 
       if(scrollPosition < 200){
         scrollPosition = 0;
