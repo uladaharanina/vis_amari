@@ -44,8 +44,8 @@ const images = files.filter(file =>
       }
 
       .list_holder img {
-        width: 250px;
-        height: 360px;
+        max-width:450px;
+        height: 460px;
         object-fit: cover;
       }
       }
@@ -150,17 +150,18 @@ window.addEventListener('load', () => {
 
   // Function to move the carousel smoothly
   function moveCarousel() {
+
     console.log(scrollPosition)
     // Move right until we reach the end of the carousel
     if (scrollPosition < carousel.scrollWidth && !isReachedTheEnd) {
-      scrollPosition += itemWidth;
-      
+      scrollPosition += itemWidth + 10;
+
     }
 
     // If we reach the end, reset to the start
-    if (scrollPosition >= carousel.scrollWidth || isReachedTheEnd) {
+    if (scrollPosition >= carousel.scrollWidth - itemWidth|| isReachedTheEnd) {
       isReachedTheEnd = true;
-      scrollPosition -= itemWidth;
+      scrollPosition -= itemWidth + 10;
 
       if(scrollPosition < 300){
         isReachedTheEnd = false;
@@ -203,6 +204,7 @@ window.addEventListener('load', () => {
   // Mobile behavior (small screens)
   if (screen.width < 401) {
     setTimeout(moveCarousel, 2500);  // Start the mobile carousel with a delay
+    console.log("Test");
   }
   // Desktop behavior (large screens)
   else {
