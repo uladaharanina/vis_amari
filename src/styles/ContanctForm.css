@@ -1,5 +1,12 @@
    
-   
+   input, button, select {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    background: transparent;
+  }
     /*DESKTOP*/
     @media screen and (min-width:1500px){
 
