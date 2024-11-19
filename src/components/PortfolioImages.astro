@@ -9,6 +9,13 @@ const portraitFiles = files.filter(file =>
   /\.(jpg|jpeg|png|gif)$/i.test(file) // Ensure only image files are included
 );
 
+portraitFiles.sort((a,b) => {
+  const numA = parseInt(a); // Parse the number from the filename
+  const numB = parseInt(b); // Parse the number from the filename
+
+  return numA - numB; // Sort based on the numeric values
+});
+
 ---
 <section id="portfolio_images">
   <LoadingScreen assets={portraitFiles}></LoadingScreen>
