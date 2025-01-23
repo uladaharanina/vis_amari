@@ -267,28 +267,4 @@
 
     }
 
-    #msg_error{
-        color: #e13454;
-        font-family: Joan, 'sans-serif';
-        font-size: 1em;
-        text-align: center;
-        background-color: rgb(255, 255, 255);
-        width:50%;
-        text-transform: uppercase;
-        border: 1px solid rgba(0, 0, 0, 0.179);
-        margin: 1em auto;
-        padding: 20px 0;
-    }
-
-    #msg_note{
-        color: #3f88b3;
-        font-family: Joan, 'sans-serif';
-        font-size: 1em;
-        text-align: center;
-        background-color: rgb(255, 255, 255);
-        width:50%;
-        text-transform: uppercase;
-        border: 1px solid rgba(0, 0, 0, 0.179);
-        margin: 1em auto;
-        padding: 20px 0;
-    }
+  

@@ -2,7 +2,7 @@ import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import '../styles/ContanctForm.css';
 
-const Contact = () => {
+const Contact = (notificationFormOpen) => {
   const [formData, setFormData] = useState({
     fullname: '',
     pronouns: '',
@@ -39,9 +39,18 @@ const Contact = () => {
        'dkur3iWg5d537-5Nc'
       );
       setStatusMessage({ message: 'Message sent successfully!', isError: false })
+      setFormData({  fullname: '',
+        pronouns: '',
+        email: '',
+        phone: '',
+        contactMethod: 'email',
+        services: 'Love Story',
+        date: '',
+        source: 'Instagram',
+        about: ''})
     } catch (error) {
       alert(error);
-
+      notificationFormOpen();
       setStatusMessage({ message: 'Could not send the message', isError: true })
     }
 
@@ -53,7 +62,25 @@ const Contact = () => {
 
   return (
     <form id="contact-form" onSubmit={handleSubmit} action="#">
-      {statusMessage.message != '' ? <p id={statusMessage.isError ? "msg_error": "msg_note"}>{statusMessage.message}</p> : ''}
+         <div>
+         {statusMessage.message && (
+        <div
+          className={`fixed bottom-[50%] left-1/2 transform -translate-x-1/2 max-w-sm w-full p-7 rounded-sm shadow-lg flex justify-between items-center transition-all duration-300 ${
+            statusMessage.isError
+              ? "bg-red-400 text-red-900"
+              : "bg-black text-white"
+          }`}
+        >
+          <p className="m-0 pr-8 text-sm">{statusMessage.message}</p>
+          <span
+            className="cursor-pointer text-lg font-bold text-white hover:text-red-500"
+            onClick={() => setStatusMessage("")}
+          >
+            X
+          </span>
+        </div>
+      )}
+         </div>
     
     <input type="text" id="fullname" name="fullname" placeholder="Your name" required   onChange={handleChange} value={formData.fullname}/>
     <input type="text" id="pronouns" name="pronouns" placeholder="Pronouns"    onChange={handleChange} value={formData.pronouns}/>
